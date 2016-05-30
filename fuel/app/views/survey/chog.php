@@ -21,7 +21,7 @@ and survey.block = 'shahkot' order by survey.village";
       }  
       return $output;  
  }  
-
+// test mail
 function load_misvillage()  
  {  
       $connect = mysqli_connect("localhost", "root", "dwss", "dwsspb");  
