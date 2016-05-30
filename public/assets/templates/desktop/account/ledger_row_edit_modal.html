@@ -1,0 +1,61 @@
+<div class="modal hide" id="ledger_row_edit_modal" tabindex="-1" role="dialog"
+     aria-labelledby="ledger_row_edit_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="ledger_row_edit_modal_Label">Edit Transaction</h3>
+    </div>
+    <div class="modal-body" id="ledger_row_edit_modal_body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Type</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <select id="transaction_type">
+                            <option value="1">Expense</option>
+                            <option value="2">Revenue</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Name</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_name" tabindex="3" size="16" type="text" class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_date" tabindex="3" size="16" type="text"
+                               class="input-large datepicker"
+                               data-date-format="yyyy-mm-dd" value="2013-1-1">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_amount" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Notes:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_notes" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td colspan="2" align="center"><br/>-->
+                        <!--<span class="badge badge-important" id="transaction_alert">Please make sure the account name, number, amount and the <br/>date of fine are correct before clicking on save!</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer" id="ledger_row_edit_modal_footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="transaction_modal_save" data-loading-text="Saving...">Save <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>

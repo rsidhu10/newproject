@@ -1,0 +1,175 @@
+<div class="row">
+    <div class="span7" style="margin-bottom: 10px;"><h1>Edit Account: <%= account_number %></h1></div>
+    <div class="span5">
+        <div class="alert fade in" id="message_alert_div" style="display: none;width:260px;margin-top: 10px;">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><span id="message_alert_strong"></span></strong> <span id="message_alert_text"></span>
+        </div>
+    </div>
+</div>
+
+
+<div id="new_user_div">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="span6">
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputName" placeholder="Name" autocomplete="off" value="<%= name %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputFathersName">Fathers Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputFathersName" placeholder="Fathers Name" autocomplete="off"
+                               value="<%= fathers_name %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Address</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputAddress" placeholder="Address" autocomplete="off"
+                               value="<%= address %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputConnectionDate">Connection Date</label>
+
+                    <div class="controls">
+                        <input type="text" class="datepicker" data-date-format="d-m-yyyy" id="inputConnectionDate"
+                               value="<%= connection_date_dmy %>" style="margin-top: 0px;">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputDue">Balance</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputDue" placeholder="" autocomplete="off" disabled value="<%= balance %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputOldAccount">Old Account</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputOldAccount" placeholder="" autocomplete="off"
+                               value="<%= old_account %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputNewAccount">New Account</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputNewAccount" placeholder="" autocomplete="off"
+                               value="<%= new_account %>">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputEconomicStatus">Economic Status</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputEconomicStatus" placeholder="" autocomplete="off"
+                               style="width: 220px;">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputCategory">Category</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputCategory" placeholder="" autocomplete="off" style="width: 220px;">
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_consumer_type">Type</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_consumer_type" style="width: 220px;" autocomplete="off">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_scheme_dd">Scheme</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_scheme_dd" style="width: 220px;" autocomplete="off">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_habitation_dd">Habitation</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_habitation_dd" style="width: 220px;" autocomplete="off">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_village">Village</label>
+
+                    <div class="controls">
+                        <!--<input type="hidden" id="input_village_dd" style="width: 220px;" autocomplete="off">-->
+                        <input type="text" id="input_village" placeholder="" autocomplete="off" disabled value="">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_panchayat">Panchayat</label>
+
+                    <div class="controls">
+                        <!--<input type="hidden" id="input_panchayat_dd" style="width: 220px;" autocomplete="off">-->
+                        <input type="text" id="input_panchayat" placeholder="" autocomplete="off" disabled value="">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_block">Block</label>
+
+                    <div class="controls">
+                        <!--<input type="hidden" id="input_block_dd" style="width: 220px;" autocomplete="off">-->
+                        <input type="text" id="input_block" placeholder="" autocomplete="off" disabled value="">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_subdivision">Subdivision</label>
+
+                    <div class="controls">
+                        <!--<input type="hidden" id="input_subdivision_dd" style="width: 220px;" autocomplete="off">-->
+                        <input type="text" id="input_subdivision" placeholder="" autocomplete="off" disabled value="">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <div class="controls">
+                        <!--<label class="checkbox">-->
+                        <!--<input type="checkbox"> Remember me-->
+                        <!--</label>-->
+                        <button class="btn btn-primary" type="button" id="new_user_create_btn"
+                                data-loading-text="Creating..."
+                                autocomplete="off">Update Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------><!------------------------------------------->
+
+
+    </form>
+</div>
+

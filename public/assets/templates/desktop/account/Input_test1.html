@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="span7" style="margin-bottom: 10px;"><h1>New Account</h1></div>
+    <div class="span5">
+        <div class="alert fade in" id="message_alert_div" style="display: none;width:260px;margin-top: 10px;">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><span id="message_alert_strong"></span></strong> <span id="message_alert_text"></span>
+        </div>
+    </div>
+</div>
+<div id="new_user_div">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="span6">
+                <!-------------------------------------------> 
+                <div class="control-group">
+                    <label class="control-label" for="inputDistrict">Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputDistrict" placeholder="District" autocomplete="off"> <span id="div_inputDistrict" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputDivision">Division</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputDivision" placeholder="Division" autocomplete="off"> <span id="div_inputDivsion" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputReleaseDate">Release Date</label>
+
+                    <div class="controls">
+                        <input type="text" class="datepicker" data-date-format="d-m-yyyy" id="inputReleaseDate"  value="<%= date %>" style="margin-top: 0px;"> <span id="div_inputReleaseDate" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!----------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputFundsType">Funds Type</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputFundsType" placeholder="" autocomplete="off" style="width: 220px;"> <span id="div_inputFundsType" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_circle_dd">Circle</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_circle_dd" style="width: 220px;" autocomplete="off"> <span id="div_input_circle_dd" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_division_dd">Division</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_division_dd" style="width: 220px;" autocomplete="off">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputRelease">Total Collected &#8377;</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputBalance" placeholder="" autocomplete="off"> <span id="div_inputBalance" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <div class="controls">
+                        <!--<label class="checkbox">-->
+                        <!--<input type="checkbox"> Remember me-->
+                        <!--</label>-->
+                        <button class="btn btn-primary" type="button" id="new_user_create_btn" data-loading-text="Creating..."
+                                autocomplete="off">Create Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------><!------------------------------------------->
+
+
+    </form>
+</div>
+

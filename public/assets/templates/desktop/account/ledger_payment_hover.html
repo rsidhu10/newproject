@@ -1,0 +1,55 @@
+<!--<table class='table table-hover table-condensed'>-->
+    <!--<tr>-->
+        <!--<td>Amount Due</td>-->
+        <!--<td><%= data.amount_due %></td>-->
+        <!--<td>Prior Balance</td>-->
+        <!--<td><%= data.balance_before %></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Amount Paid</td>-->
+        <!--<td><%= data.payment_amount %></td>-->
+        <!--<td>New Balance</td>-->
+        <!--<td><%= data.balance_after %></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Payment Date</td>-->
+        <!--<td><%= data.payment_date %></td>-->
+        <!--<td>Deleted?</td>-->
+        <!--<td><%= is_deleted %></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Entry Date</td>-->
+        <!--<td><%= data.date_created %></td>-->
+        <!--<td>Payment ID</td>-->
+        <!--<td><%= data.id %></td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+<table class='table table-condensed' style="border: none;">
+    <tbody style="border: none;">
+    <tr style="border: none;">
+        <td style="border: none;">TX #</td>
+        <td style="border: none;"><strong><%= tx_id %></strong></td>
+    </tr>
+    <tr style="border: none;">
+        <td style="border: none;">Transaction #</td>
+        <td style="border: none;"><strong><%= data.id %></strong></td>
+    </tr>
+    <tr style="border: none;">
+        <td style="border: none;">Previous Balance</td>
+        <td style="border: none;"><strong><%= data.balance_before %></strong></td>
+    </tr>
+    <tr style="border: none;">
+        <td style="border: none;">Amount Paid</td>
+        <td style="border: none;"><strong><%= credit %></strong></td>
+    </tr>
+    <tr style="border: none;">
+        <td style="border: none;">Ending Balance</td>
+        <td style="border: none;"><strong><%= data.balance_after %></strong></td>
+    </tr>
+    <tr style="border: none;">
+        <td style="border: none;">Date</td>
+        <td style="border: none;"><strong><%= payment_date_display %></strong></td>
+    </tr>
+    </tbody>
+</table>

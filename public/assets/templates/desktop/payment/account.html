@@ -1,0 +1,112 @@
+<div style="display: block;">
+
+    <div class="input-prepend input-append pull-left" style="display: inline;">
+        <span class="add-on">Amount Paid:</span><input class="input-mini" id="payment_post_amount" size="16" type="text"
+                                                       tabindex="1">
+        <button class="btn btn-danger" type="button" tabindex="2" id="payment_post_amount_btn" disabled='disabled'>
+            Process <i class="icon-arrow-right icon-white"></i>
+        </button>
+    </div>
+    &nbsp;
+    <div class="input-prepend" style="display: inline;">
+        <span class="add-on">Post Date:</span>
+        <input id="payment_post_date" tabindex="3" size="16" type="text" class="input-small datepicker"
+               data-date-format="yyyy-mm-dd">
+    </div>
+    &nbsp;
+    <div class="input-prepend pull-right" style="display: inline;">
+        <span class="add-on">Amount Due:</span><input class="input-mini disabled" disabled id="payment_post_due"
+                                                      size="16" type="text">
+    </div>
+
+</div>
+<br/><br/>
+<table class="table" style="margin-left: 0;">
+    <tr>
+        <td class="span4">
+
+
+            <h4><%= snapshot.account_number %></h4>
+            Last Bill: <%= snapshot.bill_id %><br/>
+            Issue Date: <%= snapshot.issue_date %><br/>
+            Due Date: <%= snapshot.due_date %><br/>
+
+        </td>
+        <td class="span4" style="text-align: right;">
+            <h4><%= snapshot.name %></h4>
+            <h5>Father's Name : <%= snapshot.fathers_name %></h5>
+            <h5>Village: <%= snapshot.village %> (<%= snapshot.habitation_type %>)</h5>
+            <h5><%= snapshot.address %></h5>
+
+                        <span class="badge badge-important"><%= snapshot.district %></span> <i class="icon-arrow-right icon-white"></i>
+                        <span class="badge badge-important"><%= snapshot.division %></span> <i class="icon-arrow-right icon-white"></i>
+                        <span class="badge badge-important"><%= snapshot.subdivision %></span> <i class="icon-arrow-right icon-white"></i>
+                        <span class="badge badge-important"><%= snapshot.block %></span>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="span4 well">
+
+            Start Date: <%= snapshot.start_date %> <br/>
+            End Date: <%= snapshot.end_date %> <br/>
+            Period of Bill: <%= snapshot.period_of_bill %> Months <br/>
+            Rate: <%= snapshot.rate_per_month %> Rs/Month <br/>
+            Scheme: <%= snapshot.scheme_name %> <br/>
+
+        </td>
+        <td class="span4 well" style="text-align: right;">
+
+            Current Charges: <%= snapshot.current_charges %> Rs <br/>
+            Arrears: <%= snapshot.arrears %> Rs <br/>
+            <strong>Payable By Due Date: <%= snapshot.payable_by_due_date %> Rs</strong> <br/>
+            Late Payment Surcharge: <%= snapshot.late_payment_surcharge %> Rs <br/>
+            Payable After Due Date: <%= snapshot.amount_payable_after_due_date %> Rs <br/>
+
+        </td>
+    </tr>
+</table>
+
+<div class="modal hide" id="confirm_payment_modal" tabindex="-1" role="dialog"
+     aria-labelledby="confirm_payment_modalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="confirm_payment_modalLabel">Please check the Account Number, Date and Amount before clicking on save!</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+        <table style="font-size: 130%;">
+            <tr>
+                <td align="right">Account:</td>
+                <td align="right" style="padding-left: 20px;"><div id="confirm_post_account"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Amount:</td>
+                <td align="right" style="padding-left: 20px;"><div id="confirm_post_amount"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Post Date:</td>
+                <td align="right" style="padding-left: 20px;"><div id="confirm_post_date"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Balance after payment:</td>
+                <td align="right" style="padding-left: 20px;"><div id="confirm_post_arrears"></div></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><br/>
+                    <span class="label label-important" id="confirm_post_notes"></span>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="final_payment_confirm_btn">Save <i class="icon-ok icon-white"></i></button>
+    </div>
+</div>
+
+<h1>Payments</h1>
+
+<div id="collection_div">
+</div>

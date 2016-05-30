@@ -1,0 +1,69 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">Overdue Accounts</a>
+        <!--<ul class="nav">-->
+        <!--<li class="active" id="report_payments_ppd_li"><a href="#reports" id="report_payments_ppd">Number of Payments per Day</a></li>-->
+        <!--<li id="report_payments_amount_li"><a href="#reports" id="report_payments_amount">Amount Collected Per Day</a></li>-->
+        <!--</ul>-->
+    </div>
+    <br>
+
+    <div class="well">
+
+        <div class="controls">
+
+            <div class="input-prepend">
+                <span class="add-on" style="width:75px;color:#000 !important;">Min: </span>
+                <input type="text" class="span2" id="filter_from_amount" value="" style="margin-top: 0px;">
+
+                <span class="add-on" style="margin-left:15px; width:75px;color:#000 !important;">Max: </span>
+                <input type="text" class="span2" id="filter_to_amount" value="" style="margin-top: 0px;">
+
+                <button type="submit" id="update_payments2_report_btn" class="btn btn-primary" data-loading-text="Updating..." style="display: inline; margin-left: 10px;margin-top: 0px;">
+                    Update <i class="icon-refresh icon-white"></i>
+                </button>
+                <button type="submit" id="update_payments2_report_btn_download" class="btn btn-primary" data-loading-text="Please Wait..." style="display: inline; margin-left: 10px;margin-top: 0px;">
+                    Download CSV<i class="icon-download-alt icon-white"></i>
+                </button>
+            </div>
+
+
+
+        </div>
+
+        <!--<div class="controls controls-row">-->
+
+            <!--<div class="input-prepend input-append" style="display: inline;">-->
+                <!--<span class="add-on">From: </span>-->
+                <!--<input type="text" class="span2 datepicker" data-date-format="d-m-yyyy" id="xfilter_from_date"-->
+                       <!--value="<%= filter_from_date %>">-->
+                <!--<span class="add-on"><i class="icon-calendar"></i></span>-->
+            <!--</div>-->
+            <!--<div class="input-prepend input-append" style="display: inline; margin-left: 10px;">-->
+                <!--<span class="add-on">To: </span>-->
+                <!--<input type="text" class="span2 datepicker" data-date-format="d-m-yyyy" id="xfilter_to_date"-->
+                       <!--value="<%= filter_to_date %>">-->
+                <!--<span class="add-on"><i class="icon-calendar"></i></span>-->
+            <!--</div>-->
+
+            <!--<button type="submit" id="xupdate_payments2_report_btn" class="btn btn-primary" data-loading-text="Updating..." style="display: inline; margin-left: 10px;margin-top: 0px;">-->
+                <!--Update <i class="icon-refresh icon-white"></i>-->
+            <!--</button>-->
+        <!--</div>-->
+
+        <!--<div class="controls controls-row" style="margin-top: 10px;">-->
+        <div style="margin-top: 10px;">
+
+            <input type="hidden" id="payments2_subdivision_dd" style="width: 180px; display: none;">
+            <input type="hidden" id="payments2_block_dd" style="width: 180px; display: none;">
+            <input type="hidden" id="payments2_panchayat_dd" style="width: 180px; display: none;">
+            <input type="hidden" id="payments2_village_dd" style="width: 180px; display: none;">
+            <input type="hidden" id="payments2_habitation_dd" style="width: 180px; display: none;">
+
+
+        </div>
+    </div>
+</div>
+
+<div id="total_amount" class="pull-left" style="font-size: large;"></div>
+<div id="collection_div"></div>

@@ -1,0 +1,175 @@
+<div class="row">
+    <div class="span7" style="margin-bottom: 10px;"><h1>New Account</h1></div>
+    <div class="span5">
+        <div class="alert fade in" id="message_alert_div" style="display: none;width:260px;margin-top: 10px;">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><span id="message_alert_strong"></span></strong> <span id="message_alert_text"></span>
+        </div>
+    </div>
+</div>
+<div id="new_user_div">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="span6">
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputName" placeholder="Name" autocomplete="off"> <span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputFathersName">Fathers Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputFathersName" placeholder="Fathers Name" autocomplete="off"> <span id="div_inputFathersName" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Address</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputAddress" placeholder="Address" autocomplete="off"> <span id="div_inputAddress" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputConnectionDate">Connection Date</label>
+
+                    <div class="controls">
+                        <input type="text" class="datepicker" data-date-format="d-m-yyyy" id="inputConnectionDate"  value="<%= date %>" style="margin-top: 0px;"> <span id="div_inputConnectionDate" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputEconomicStatus">Economic Status</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputEconomicStatus" placeholder="" autocomplete="off" style="width: 220px;"> <span id="div_inputEconomicStatus" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputCategory">Category</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputCategory" placeholder="" autocomplete="off" style="width: 220px;"> <span id="div_inputCategory" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="inputDue">Amount Due &#8377;</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="text" id="inputDue" placeholder="" autocomplete="off" disabled value=""> <span id="div_inputDue" style="color: red;font-size: x-large;display:none;">*</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!------------------------------------------->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="inputCollected">Amount Collected &#8377;</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="text" id="inputCollected" placeholder="" autocomplete="off"> <span id="div_inputCollected" style="color: red;font-size: x-large;display:none;">*</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="span6">
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_scheme_dd">Scheme</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_scheme_dd" style="width: 220px;" autocomplete="off"> <span id="div_input_scheme_dd" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="input_subdivision_dd">Subdivision</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="hidden" id="input_subdivision_dd" style="width: 220px;" autocomplete="off">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="input_block_dd">Block</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="hidden" id="input_block_dd" style="width: 220px;" autocomplete="off">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="input_panchayat_dd">Panchayat</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="hidden" id="input_panchayat_dd" style="width: 220px;" autocomplete="off">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="input_village_dd">Village</label>-->
+
+                    <!--<div class="controls">-->
+                        <!--<input type="hidden" id="input_village_dd" style="width: 220px;" autocomplete="off">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_habitation_dd">Habitation</label>
+
+                    <div class="controls">
+                        <input type="hidden" id="input_habitation_dd" style="width: 220px;" autocomplete="off"> <span id="div_input_habitation_dd" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_new_connection_fee">New Connection Fee &#8377;</label>
+
+                    <div class="controls">
+                        <input type="text" style="text-align:right;" id="input_new_connection_fee" placeholder="" autocomplete="off" disabled value="0.00">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_deposit">Minimum Deposit &#8377;</label>
+
+                    <div class="controls">
+                        <input type="text" style="text-align:right;" id="input_deposit" placeholder="" autocomplete="off" disabled value="0.00">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="input_total_due">Total Due &#8377;</label>
+
+                    <div class="controls">
+                        <input type="text" style="text-align:right;" id="input_total_due" placeholder="" autocomplete="off" disabled value="0.00">
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <label class="control-label" for="inputBalance">Total Collected &#8377;</label>
+
+                    <div class="controls">
+                        <input type="text" id="inputBalance" placeholder="" autocomplete="off"> <span id="div_inputBalance" style="color: red;font-size: x-large;display:none;">*</span>
+                    </div>
+                </div>
+                <!------------------------------------------->
+                <div class="control-group">
+                    <div class="controls">
+                        <!--<label class="checkbox">-->
+                        <!--<input type="checkbox"> Remember me-->
+                        <!--</label>-->
+                        <button class="btn btn-primary" type="button" id="new_user_create_btn" data-loading-text="Creating..."
+                                autocomplete="off">Create Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------><!------------------------------------------->
+
+
+    </form>
+</div>
+

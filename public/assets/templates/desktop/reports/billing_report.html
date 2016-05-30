@@ -1,0 +1,57 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">Billing</a>
+        <!--<ul class="nav">-->
+            <!--<li class="active" id="report_chart1_li"><a href="#reports" id="report_chart1">Chart 1</a></li>-->
+            <!--&lt;!&ndash;<li id="report_schemes_consumers_li"><a href="#reports" id="report_schemes_consumers">Cart </a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li id="report_schemes_connection_type_li"><a href="#reports" id="report_schemes_connection_type">Connection Type</a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li id="report_schemes_operational_status_li"><a href="#reports" id="report_schemes_operational_status">Operational Status</a></li>&ndash;&gt;-->
+        <!--</ul>-->
+    </div>
+</div>
+<div id="main_reports_div">
+    <div class="row" style="padding-left:30px; ">
+        <div class="span8">
+            <input type="hidden" id="billing_stats_months" style="width: 180px; display: none;">
+        </div>
+        <div class="span4">
+            <button type="button" class="btn btn-danger pull-right" data-toggle="collapse"
+                    data-target="#report_settings">Settings
+            </button>
+        </div>
+    </div>
+
+    <div id="report_settings" style="" class="collapse">
+        <table class="table table-bordered table-striped table-hover table-condensed" id="report_settings_table">
+            <tr>
+                <td><input type="checkbox" id="bills_created" class="report_setting"> Bills Created</td>
+                <td><input type="checkbox" id="bills_created_amount" class="report_setting"> Amount Billed</td>
+                <td><input type="checkbox" id="bills_processed" class="report_setting"> Bills Processed</td>
+                <td><input type="checkbox" id="bills_processed_amount" class="report_setting"> Amount Collected</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="bills_late" class="report_setting"> Bills Late</td>
+                <td><input type="checkbox" id="bills_late_amount" class="report_setting"> Late Fee Amount</td>
+                <td><input type="checkbox" id="bills_processed_type_1" class="report_setting"> Auto Closed</td>
+                <td><input type="checkbox" id="bills_processed_type_1_amount" class="report_setting"> Auto Closed Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="bills_processed_type_2" class="report_setting"> Partial Prepay</td>
+                <td><input type="checkbox" id="bills_processed_type_2_amount" class="report_setting"> Partial Prepay Amount</td>
+                <td><input type="checkbox" id="bills_processed_type_3" class="report_setting"> Prepay</td>
+                <td><input type="checkbox" id="bills_processed_type_3_amount" class="report_setting"> Prepay Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="bills_processed_type_4" class="report_setting"> Payments</td>
+                <td><input type="checkbox" id="bills_processed_type_4_amount" class="report_setting"> Payment Amount</td>
+                <td><input type="checkbox" id="bills_processed_type_5" class="report_setting"> Unpaid</td>
+                <td><input type="checkbox" id="bills_processed_type_5_amount" class="report_setting"> Unpaid Amount</td>
+            </tr>
+        </table>
+
+    </div>
+    <br/><br/>
+    <span id="hierarchy_title" style="font-size: larger;">Wings</span>
+    <div id="backgrid"></div>
+    <div id="graphs" style=""></div>
+</div>

@@ -1,0 +1,153 @@
+<div id="create_bill_wizard_div" xmlns="http://www.w3.org/1999/html">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="span5" style="margin-left: 30px;">
+                <fieldset>
+                    <legend>Account Search</legend>
+
+
+                    <label>Account Number</label>
+                    <input id="input_account_num" class="input-large" type="text" placeholder="Account Number…"
+                           style="padding-top: 4px;padding-right: 6px;padding-bottom: 4px;padding-left: 6px;"/>
+                                <span id="ok_or_not_span" class="badge badge-important"
+                                      style="vertical-align: -4px !important; height:25px;line-height: 34px;">
+                                    <i id="ok_or_not_icon" class="icon-remove icon-white icon-large"
+                                       style=""></i></span><br/>
+
+                    <button type="button" class="btn btn-danger btn-link" data-toggle="collapse" data-target="#advanced_search" style="position: relative;top: -8px; padding-left: 142px; font-size: x-small;">
+                      Advanced Search
+                    </button>
+                </fieldset>
+            </div>
+
+            <div class="span6">
+                <fieldset>
+                    <div id="account_info_div">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row" style="height: 20px;"></div>
+        <div id="advanced_search" class="row collapse">
+            <div class="span5" style="margin-left: 30px;">
+                <fieldset>
+                    <label>Name</label>
+                    <input type="text" id="search_name" placeholder="Name">
+                    <span class="help-block"></span>
+
+                    <label>Old Account Number</label>
+                    <input type="text" id="search_old_account_number" placeholder="Old Account number">
+                    <span class="help-block"></span>
+
+                    <label>New Account Number</label>
+                    <input type="text" id="search_new_account_number" placeholder="New Account Number">
+                    <span class="help-block"></span>
+
+                    <label>Bill Number</label>
+                    <input type="text" id="search_bill_number" placeholder="Bill Number">
+                    <span class="help-block"></span>
+
+                    <button type="submit" class="btn btn-primary" id="adv_search_btn">Search<i class="icon-white icon-arrow-right"></i>
+                    </button>
+                </fieldset>
+            </div>
+            <div class="span6">
+                <fieldset>
+
+
+                    <label>Filter</label>
+                    <input type="hidden" id="subdivision_dd" style="width: 180px; display: none;">
+                    <span class="help-block"></span>
+
+                    <label>Block</label>
+                    <input type="hidden" id="block_dd" style="width: 180px; display: none;">
+                    <span class="help-block"></span>
+
+                    <label>Panchayat</label>
+                    <input type="hidden" id="panchayat_dd" style="width: 180px; display: none;">
+                    <span class="help-block"></span>
+
+                    <label>Village</label>
+                    <input type="hidden" id="village_dd" style="width: 180px; display: none;">
+                    <span class="help-block"></span>
+
+                    <label>Habitation</label>
+                    <input type="hidden" id="habitation_dd" style="width: 180px; display: none;">
+                    <span class="help-block"></span>
+
+                    <!--<label>Panchayat</label>-->
+                    <!--<select>-->
+                    <!--<option>..</option>-->
+                    <!--</select>-->
+                    <!--<span class="help-block"></span>-->
+
+                    <!--<label>Village</label>-->
+                    <!--<select>-->
+                    <!--<option>..</option>-->
+                    <!--</select>-->
+                    <!--<span class="help-block"></span>-->
+
+                    <!--<label>Habitation</label>-->
+                    <!--<select>-->
+                    <!--<option>..</option>-->
+                    <!--</select>-->
+                    <!--<span class="help-block"></span>-->
+
+                    <!--<label class="checkbox">-->
+                    <!--<input type="checkbox"> Check me out-->
+                    <!--</label>-->
+                </fieldset>
+            </div>
+        </div>
+
+    </form>
+
+
+    <!--<legend>Search Results</legend>-->
+    <!--<table class="table table-bordered table-hover" id="collection_data_table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<td>Account Number</td>-->
+            <!--<td>Name</td>-->
+            <!--<td>Address</td>-->
+            <!--<td>Old Account</td>-->
+            <!--<td>New Account</td>-->
+            <!--<td>Habitation</td>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+
+        <!--<tr data-original-title="" id="184q0p">-->
+            <!--<td><a href="">7654321</a></td>-->
+            <!--<td>A Singh</td>-->
+            <!--<td>Home Address</td>-->
+            <!--<td>1122</td>-->
+            <!--<td>234234</td>-->
+            <!--<td>Patiala</td>-->
+        <!--</tr>-->
+
+        <!--<tr data-original-title="" id="184e0p">-->
+            <!--<td><a href="">7654323</a></td>-->
+            <!--<td>B Singh</td>-->
+            <!--<td>Home Address</td>-->
+            <!--<td>2233</td>-->
+            <!--<td>234234</td>-->
+            <!--<td>Sangrur</td>-->
+        <!--</tr>-->
+
+        <!--<tr data-original-title="" id="184z0p">-->
+            <!--<td><a href="">7654323</a></td>-->
+            <!--<td>C Singh</td>-->
+            <!--<td>Home Address</td>-->
+            <!--<td>3344</td>-->
+            <!--<td>5544332</td>-->
+            <!--<td>Chandigarh</td>-->
+        <!--</tr>-->
+
+        <!--</tbody>-->
+    <!--</table>-->
+</div>
+
+
+<div id="collection_div">
+</div>

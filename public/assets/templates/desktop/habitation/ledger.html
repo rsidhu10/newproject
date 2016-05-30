@@ -1,0 +1,127 @@
+<div id="habitation_ledger">
+    <div id="habitation_ledger_header" style="min-height: 80px;background-color: #bbd8e9;margin-left: 0px;" class="row">
+        <div class="span4">
+            <a class="btn btn-success" id="habitation_new_transaction" style="margin-bottom: 13px;" href="#">
+                <span id="span_consumer_fine_account">New</span>
+                <i class="icon-plus-sign" style="margin-top: 2px;"></i>
+            </a>
+        </div>
+        <div class="span8">
+            <div style="float: right; margin-top: 5px;margin-right: 5px;">
+                <span style="font-size: xx-large;"><%= name %></span><br/>
+                <span style="font-size: x-large;color: #858585;"><%= balance %> </span>
+            </div>
+        </div>
+    </div>
+    <div id="habitation_ledger_transactions">
+        <table class="table table-bordered table-hover" id="collection_data_table">
+            <thead>
+            <tr style="background-color: #337ffa;color: white;">
+                <td>ID</td>
+                <td>Type</td>
+                <td>Date</td>
+                <td>Prior Balance</td>
+                <td>Debit</td>
+                <td>Credit</td>
+                <td>Ending Balance</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7">No Entries</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal hide" id="habitation_ledger_add_transaction_modal" tabindex="-1" role="dialog"
+     aria-labelledby="habitation_ledger_add_transaction_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="habitation_ledger_add_transaction_modal_Label"> New Transaction</h3>
+    </div>
+    <div class="modal-body" id="habitation_ledger_add_transaction_modal_body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Type</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <select id="transaction_type">
+                            <option value="1">Expense</option>
+                            <option value="2">Revenue</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Name</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_name" tabindex="3" size="16" type="text" class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_date" tabindex="3" size="16" type="text"
+                               class="input-large datepicker"
+                               data-date-format="yyyy-mm-dd" value="2013-1-1">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_amount" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Notes:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="transaction_notes" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td colspan="2" align="center"><br/>-->
+                        <!--<span class="badge badge-important" id="transaction_alert">Please make sure the account name, number, amount and the <br/>date of fine are correct before clicking on save!</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer" id="habitation_ledger_add_transaction_modal_footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="transaction_modal_save" data-loading-text="Saving...">Save <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal hide" id="habitation_ledger_add_transaction_modal_success" tabindex="-1" role="dialog"
+     aria-labelledby="habitation_ledger_add_transaction_modal_success_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="habitation_ledger_add_transaction_modal_success_Label">Success!</h3>
+    </div>
+    <div class="modal-body" id="habitation_ledger_add_transaction_modal_success_body">
+        <h4>The new transaction was recorded successfully.</h4>
+    </div>
+    <div class="modal-footer" id="habitation_ledger_add_transaction_modal_success_footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<div class="modal hide" id="habitation_ledger_add_transaction_modal_error" tabindex="-1" role="dialog"
+     aria-labelledby="habitation_ledger_add_transaction_modal_error_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="habitation_ledger_add_transaction_modal_error_Label">Error</h3>
+    </div>
+    <div class="modal-body" id="habitation_ledger_add_transaction_modal_error_body">
+        <h4><span style="color: red;">Oops!</span>An error occurred while saving this transaction. Please go back and check your data and try again.</h4>
+    </div>
+    <div class="modal-footer" id="habitation_ledger_add_transaction_modal_error_footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>

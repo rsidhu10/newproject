@@ -1,0 +1,482 @@
+<div id="ledger">
+
+    <div align="right" style="padding: 15px; <%= div_style %> margin-left:0px;" class="row">
+        <div class="span7" align="left">
+            <a class="btn" id="consumer_disconnect_reconnect_account" style="margin-bottom: 13px;" href="#">
+                <span id="span_consumer_disconnect_reconnect_account">Account Status</span>
+                <i class="icon-exclamation-sign icon-large" style="margin-top: 2px;"></i>
+            </a>
+            <a class="btn btn-danger" id="consumer_fine_account" style="margin-bottom: 13px;" href="#">
+                <span id="span_consumer_fine_account">Apply Fine</span>
+                <i class="icon-exclamation-sign icon-large" style="margin-top: 2px;"></i>
+            </a>
+
+            <a class="btn btn-primary" id="edit_account" style="margin-bottom: 13px;"
+               href="#accounts/edit/<%= consumer.account_number %>">
+                <span id="edit_account_span">Edit</span>
+                <i class="icon-edit icon-large" style="margin-top: 2px;"></i>
+            </a>
+
+
+            <!--<button class="btn">Submit</button>-->
+            <!--<button class="btn">Submit</button>-->
+            <!--<button class="btn">Submit</button>-->
+        </div>
+        <div class="span5"><span style="font-size: 2em;"><%= consumer.name %></span>
+            <br/>
+            Account Type: <strong><%= consumer.consumer_type_string %></strong> Account No: <strong><%= consumer.account_number %></strong><br/>
+            District: <strong><%= snapshot.district %></strong> / Block: <strong><%= snapshot.block %></strong> /
+            Village:
+            <strong><%= snapshot.village %></strong>
+        </div>
+    </div>
+
+    <!--<label class="checkbox inline">-->
+    <!--<input type="checkbox" id="inlineCheckbox1" value="show_bills" checked="checked"> Show Bills-->
+    <!--</label>-->
+    <!--<label class="checkbox inline">-->
+    <!--<input type="checkbox" id="inlineCheckbox2" value="show_payments" checked="checked"> Show Payments-->
+    <!--</label>-->
+    <div class="row">
+        <!--<div class="pull-left"><h3>&nbsp;&nbsp;&nbsp;&nbsp;Transaction History</h3></div>-->
+        <div class="pull-left" style="margin-left: 30px;margin-top: 10px;">
+            <!--<div align="right">-->
+            <span style="font-size: larger">Amount Due: ₹ <span id="snapshot_amount_due"><%= snapshot.current_amount_due %></span></span>
+            <!--</div>-->
+            <div>
+                <span style="font-size: larger">Payment:</span> <input class="input-small" id="payment_post_amount"
+                                                                       type="text" tabindex="1">
+                <input id="payment_post_date" tabindex="3" size="16" type="text" class="input-small datepicker"
+                       data-date-format="yyyy-mm-dd">
+                <button class="btn btn-danger" type="button" tabindex="2" id="payment_post_amount_btn"
+                        style="margin-top: -10px;">
+                    Apply <i class="icon-arrow-right icon-white"></i>
+                </button>
+
+            </div>
+        </div>
+        <div class="pull-right">
+            <!--<h3 style="margin-bottom: 0px;" class="pull-right">-->
+            <span class="pull-right" style="margin-top:10px; font-size: xx-large;color: <%= balance_color %>;">Account Balance: ₹ <%= balance_formatted %></span>
+            <!--</h3>-->
+            <br/>
+            <span class="pull-right"
+                  style="margin-top:10px;color: <%= balance_color %>; font-size: large; text-align: right;">Security Deposit: <%= snapshot.consumer_deposit_amount_display %>, <%= consumer.prepay_months_remaining %> Months prepaid.</span>
+
+        </div>
+        <div class="pull-right" style="margin-right: 10px;margin-top:4px;">
+            <a class="btn btn-danger hidden" id="save_ledger_button" href="#">
+                <span id="save_ledger_button_span">Save Ledger</span>
+                <i class="icon-exclamation-sign icon-large" style="margin-top: 2px;"></i>
+            </a>
+            <a class="btn hidden" id="reload_ledger_button" href="#">
+                <span id="reload_ledger_button_span">Cancel</span>
+                <i class="icon-remove icon-large" style="margin-top: 2px;"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <!--<div class="pull-left"><h3>&nbsp;&nbsp;&nbsp;&nbsp;Transaction History</h3></div>-->
+        <div class="pull-right" style="display:none;">
+            Sort Order:
+            <select id="ledger_sort_order">
+                <option value="created_at">Created At</option>
+                <option value="timestamp">Payment / Bill Date</option>
+                <option value="updated_at">Updated At</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="ledger_table">
+
+
+    </div>
+    <span style="color:#bbb;" id="show_activity_log">+ Activity Log</span>
+
+    <div id="auditlog_backgrid_consumer" style="color:#bbb;"></div>
+</div>
+
+<div class="modal hide" id="account_reconnection_modal" tabindex="-1" role="dialog"
+     aria-labelledby="account_reconnection_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="account_reconnection_modal_Label">Reconnect Account</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Name</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_reconnection_name"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Acount Number:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_reconnection_account_number"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Reconnection Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="account_reconnection_date" tabindex="3" size="16" type="text"
+                               class="input-small datepicker"
+                               data-date-format="d-m-yyyy" value="1-1-2012">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><br/>
+                        <span class="badge badge-important" id="account_reconnection_notes">Please make sure the account name, number and the <br/>date of reconnection are correct before clicking on save!</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="account_reconnection_modal_save" data-loading-text="Saving...">Save <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+
+<div class="modal hide" id="account_disconnection_modal" tabindex="-1" role="dialog"
+     aria-labelledby="account_reconnection_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="account_disconnection_modal_Label">Disconnect Account</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Name</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_disconnection_name"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Acount Number:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_disconnection_account_number"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Disconnection Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="account_disconnection_date" tabindex="3" size="16" type="text"
+                               class="input-small datepicker"
+                               data-date-format="d-m-yyyy" value="1-1-2012">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><br/>
+                        <span class="badge badge-important" id="account_disconnection_notes">Please make sure the account name, number and the <br/>date of disconnection are correct before clicking on save!</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="account_disconnection_modal_save" data-loading-text="Saving...">Save <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal hide" id="ledger_row_edit_modal" tabindex="-1" role="dialog"
+     aria-labelledby="ledger_row_edit_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="ledger_row_edit_modal_Label">Edit Record</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Transaction Type:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_transaction_type" tabindex="3" size="16" type="text"
+                               class="input-large" readonly="true" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">TX ID:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_tx_id" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Prior Balance:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_prior_balance" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_amount" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Ending Balance:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_ending_balance" tabindex="3" size="16" type="text"
+                               class="input-large" readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Notes:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_notes" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"></td>
+                    <td align="right" style="padding-left: 20px;float:left;">
+                        <input id="row_edit_recursive" type="checkbox" checked>
+                        <small>Recursive Update</small>
+                        <!--</div>-->
+                        <!--<input id="row_edit_notes" tabindex="3" size="16" type="text"-->
+                        <!--class="input-large">-->
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"></td>
+                    <td align="right" style="padding-left: 20px;float:left;">
+                        <input id="row_edit_delete" type="checkbox">
+                        <small style="color:#cc0000">Delete Transaction</small>
+                        <!--</div>-->
+                        <!--<input id="row_edit_notes" tabindex="3" size="16" type="text"-->
+                        <!--class="input-large">-->
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td colspan="2" align="center"><br/>-->
+                <!--<span class="badge badge-important" id="account_fine_alert">Please make sure the account name, number, amount and the <br/>date of fine are correct before clicking on save!</span>-->
+                <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!--<div style="float:left;">-->
+        <!--<button class="btn btn-danger left" id="ledger_row_edit_modal_delete" aria-hidden="true">Delete Transaction</button>-->
+        <!--</div>-->
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="ledger_row_edit_modal_save" data-loading-text="Saving...">Update <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal hide" id="ledger_row_edit_bill_modal" tabindex="-1" role="dialog"
+     aria-labelledby="ledger_row_edit_bill_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="ledger_row_edit_bill_modal_Label">Edit Bill</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">TX ID:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_tx_id" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Prior Balance:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_bill_prior_balance" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Available Balance:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_bill_available_balance" tabindex="3" size="16" type="text"
+                               class="input-large" readonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div>
+                            <div style="float:left;">
+                                <input id="row_edit_bill_amount" tabindex="3" size="16" type="text"
+                                       class="input-small" readonly="true">
+                            </div>
+                            <div style="float:right;">
+                                <input id="row_edit_bill_processed" tabindex="3" size="16" type="text"
+                                           class="input-small" readonly="true">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Date Processed:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_bill_date_processed" tabindex="3" size="16" type="text"
+                               class="input-large datepicker" data-date-format="yyyy-mm-dd">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Notes:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="row_edit_bill_notes" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td align="right"></td>-->
+                    <!--<td align="right" style="padding-left: 20px;float:left;" id="row_edit_bill_paid_td">-->
+                        <!--<input id="row_edit_bill_processed" type="checkbox">-->
+                        <!--<small>Paid</small>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td align="right"></td>
+                    <td align="right" style="padding-left: 20px;float:left;">
+                        <input id="row_edit_bill_recursive" type="checkbox" checked>
+                        <small>Recursive Update</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"></td>
+                    <td align="right" style="padding-left: 20px;float:left;">
+                        <input id="row_edit_bill_delete" type="checkbox">
+                        <small style="color:#cc0000">Delete Bill</small>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td colspan="2" align="center"><br/>-->
+                <!--<span class="badge badge-important" id="account_fine_alert">Please make sure the account name, number, amount and the <br/>date of fine are correct before clicking on save!</span>-->
+                <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!--<div style="float:left;">-->
+        <!--<button class="btn btn-danger left" id="ledger_row_edit_modal_delete" aria-hidden="true">Delete Transaction</button>-->
+        <!--</div>-->
+        <!--<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>-->
+        <button class="btn btn-primary" id="ledger_row_edit_bill_modal_save" data-loading-text="Saving...">Ok <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal hide" id="account_fine_modal" tabindex="-1" role="dialog"
+     aria-labelledby="account_reconnection_modal_Label" aria-hidden="true">
+    <div class="modal-header" style="background-color: #9CC1FD;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="account_fine_modal_Label">Fines & Penalties</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Name</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_fine_name"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Acount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="account_fine_account_number"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="account_fine_date" tabindex="3" size="16" type="text"
+                               class="input-large datepicker"
+                               data-date-format="d-m-yyyy" value="1-1-2012">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="account_fine_amount" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Notes:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <input id="account_fine_notes" tabindex="3" size="16" type="text"
+                               class="input-large">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><br/>
+                        <span class="badge badge-important" id="account_fine_alert">Please make sure the account name, number, amount and the <br/>date of fine are correct before clicking on save!</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="account_fine_modal_save" data-loading-text="Saving...">Save <i
+                class="icon-ok icon-white"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal hide" id="confirm_payment_modal" tabindex="-1" role="dialog"
+     aria-labelledby="confirm_payment_modalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="confirm_payment_modalLabel">Payment</h3>
+    </div>
+    <div class="modal-body">
+        <div class="pull-right" style="padding-right: 50px;">
+            <table style="font-size: 130%;">
+                <tr>
+                    <td align="right">Account:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="confirm_post_account"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Amount:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="confirm_post_amount"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Post Date:</td>
+                    <td align="right" style="padding-left: 20px;">
+                        <div id="confirm_post_date"></div>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td align="right">Balance after payment:</td>-->
+                <!--<td align="right" style="padding-left: 20px;"><div id="confirm_post_arrears"></div></td>-->
+                <!--</tr>-->
+                <tr>
+                    <td colspan="2" align="right"><br/>
+                        <span class="label label-warning" id="confirm_post_notes"
+                              style="font-size: medium; min-height: 30px; text-align: center; vertical-align: middle; padding-top: 15px;">Please make sure the above information is correct.</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" id="final_payment_confirm_btn">Save <i class="icon-ok icon-white"></i></button>
+    </div>
+</div>

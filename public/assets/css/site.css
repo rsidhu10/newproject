@@ -1,0 +1,33 @@
+.table tbody tr.payment td {
+  /*background-color: lavender;*/
+}
+
+.table tbody tr.bill-closed td {
+  /*background-color: cornsilk;*/
+}
+.table tbody tr.bill-open td {
+  /*background-color: cornsilk;*/
+}
+
+.table tbody tr.balance-correction td {
+  /*background-color: mintcream;*/
+}
+.table tbody tr.account-disconnected td {
+  /*background-color: mintcream;*/
+}
+.table tbody tr.account-reconnected td {
+  /*background-color: mintcream;*/
+}
+.table tbody tr.new-connection td {
+  /*background-color: mintcream;*/
+}
+.table tbody tr.prorated-bill td {
+  /*background-color: mintcream;*/
+}
+.table tbody tr.fine td {
+  /*background-color: mistyrose;*/
+}
+.table-hover tbody tr:hover td {
+  background-color: indianred !important;
+    color: #ffffff;
+}

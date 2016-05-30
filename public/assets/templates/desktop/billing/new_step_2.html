@@ -1,0 +1,114 @@
+<form class="form-horizontal">
+    <legend>You have selected to create a bill for all consumers in the <%= name %> <%= hierarchy %></legend>
+    <div class="row">
+        <div class="span5">
+
+            <div class="control-group">
+                <label class="control-label" for="inputStartDate">Start Date (m/y)</label>
+
+                <div class="controls">
+                    <input type="text" class="datepicker" data-date-format="m/yyyy" id="inputStartDate"
+                           placeholder="Start Date" value="<%= start_date %>" data-date-minViewMode="months">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputEndDate">End Date </label>
+
+                <div class="controls">
+                    <input type="text" class="datepicker" data-date-format="m/yyyy" id="inputEndDate"
+                           placeholder="End Date" value="<%= end_date %>" data-date-minViewMode="months">
+                </div>
+            </div>
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputLateFee">Late Fee %</label>-->
+
+            <!--<div class="controls">-->
+            <!--<input type="text" id="inputLateFee" placeholder="Late Fee" value="25">-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputSchemeOperatedBy">Scheme Operated By</label>-->
+            <!--<div class="controls">-->
+            <!--<select id="inputSchemeOperatedBy">-->
+            <!--<option>DWSS</option>-->
+            <!--<option>GPWSC</option>-->
+            <!--<option>GP</option>-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="span5">
+
+            <!--<div class="control-group">-->
+                <!--<label class="control-label" for="inputDueDate">Due Date (d/m/y)</label>-->
+
+                <!--<div class="controls">-->
+                    <!--<input type="text" id="inputDueDate" placeholder="Due Date" class="datepicker"-->
+                           <!--data-date-format="d/m/yyyy"  value="">-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="control-group">
+                <label class="control-label" for="inputIssueDate">Issue Date (d/m/y)</label>
+
+                <div class="controls">
+                    <input type="text" id="inputIssueDate" placeholder="Issue Date" class="datepicker"
+                           data-date-format="d/m/yyyy" value="<%= issue_date %>">
+
+                </div>
+            </div>
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputD_LPCDCompare">D_LPCD</label>-->
+
+            <!--<div class="controls">-->
+            <!--<input type="text" id="inputD_LPCDCompare" placeholder="D_LPCD Compare" value="70">-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputRateD_LPCDLT">Less Than</label>-->
+
+            <!--<div class="controls">-->
+            <!--<input type="text" id="inputRateD_LPCDLT" placeholder="Rate D_LPCD LT" value="75">-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputRateD_LPCDEQ">Equal to</label>-->
+
+            <!--<div class="controls">-->
+            <!--<input type="text" id="inputRateD_LPCDEQ" placeholder="Rate D_LPCD EQ" value="75">-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="control-group">-->
+            <!--<label class="control-label" for="inputRateD_LPCDGT">Greater Than</label>-->
+
+            <!--<div class="controls">-->
+            <!--<input type="text" id="inputRateD_LPCDGT" placeholder="Rate D_LPCD GT" value="75">-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-primary" id="submit_job_step_3">Create Job <i
+                            class="icon-arrow-right icon-white"></i>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
+
+        <h2>Previous Jobs:</h2>
+<div id="previous_billjobs_data_table">
+
+</div>

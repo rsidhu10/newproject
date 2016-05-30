@@ -1,0 +1,133 @@
+<br/>
+<h2>Edit Billing Group: <%= id %>: <%= name %><button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#billgroup_settings">
+  Show / Hide Settings
+</button></h2>
+
+<div id="billgroup_settings" class="collapse">
+
+<form class="form-horizontal well">
+    <fieldset>
+        <legend>Billgroup Settings</legend>
+
+
+        <div class="control-group">
+            <label class="control-label" for="input_d_lpcd_compare">Designed LPCD Compare</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input_d_lpcd_compare" value="<%= d_lpcd_compare %>">
+
+                <p class="help-block">For various billing combinations, see rates below.</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="input_rate_lt_d_lpcd">Rate Less Than D_LPCD</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input_rate_lt_d_lpcd" value="<%= rate_lt_d_lpcd %>">
+
+                <p class="help-block">The rate in Rupees-Per-Month if D_LPCD is LESS THAN the Designed LPCD Compare value above</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="input_rate_gt_d_lpcd">Rate Greater Than D_LPCD</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input_rate_gt_d_lpcd" value="<%= rate_gt_d_lpcd %>">
+
+                <p class="help-block">The rate in Rupees-Per-Month if D_LPCD is GREATER THAN the Designed LPCD Compare value above</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="input_rate_eq_d_lpcd">Rate Equal To D_LPCD</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input_rate_eq_d_lpcd" value="<%= rate_eq_d_lpcd %>">
+
+                <p class="help-block">The rate in Rupees-Per-Month if D_LPCD is EQUAL TO the Designed LPCD Compare value above</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="input_cutoff_date">Cutoff Date</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input_cutoff_date" value="<%= cutoff_date %>">
+
+                <p class="help-block">The cutoff day of month used to calculate monthly dues.</p>
+            </div>
+        </div>
+
+
+        <button type="button" style="margin-right:10px;" class="btn btn-primary pull-right"
+                        id="update_billgroup_settings">Update Settings
+        </button>
+
+    </fieldset>
+</form>
+</div>
+
+<span class="span10">
+
+    <p>
+        <input type="hidden" id="billgroup_subdivision_dd" class="span3">
+        <input type="hidden" id="billgroup_block_dd" class="span3">
+        <input type="hidden" id="billgroup_habitation_dd" class="span6"> <br/>
+        <button type="button" disabled="disabled" class="btn pull-right" id="billgroup_add_habitation_all">Add All
+        </button>
+        <button type="button" disabled="disabled" style="margin-right:10px;" class="btn btn-primary pull-right"
+                id="billgroup_add_habitation_selected">Add Selected
+        </button>
+    </p>
+
+</span>
+        <br/>
+<!----------------------------------------------------------------------------------------->
+<br/>
+<strong>The following habitations are a part of this billing group:</strong>
+<table class="table table-bordered table-striped table-hover table-condensed" id="collection_data_table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Subdivision</th>
+        <th>Block</th>
+        <th>Habitation</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td colspan="5">Loading, please wait...</td>
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>58</td>-->
+        <!--<td>Malerkotla 2</td>-->
+        <!--<td>Block 1</td>-->
+        <!--<td>Habitation 1</td>-->
+        <!--<td><a class="btn btn-danger btn-small" href="#">Remove</a></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>57</td>-->
+        <!--<td>Malerkotla 1</td>-->
+        <!--<td>Block 2</td>-->
+        <!--<td>Habitation 2</td>-->
+        <!--<td><a class="btn btn-danger btn-small" href="#">Remove</a></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>56</td>-->
+        <!--<td>Sherpur</td>-->
+        <!--<td>Block</td>-->
+        <!--<td>Habitation 3</td>-->
+        <!--<td><a class="btn btn-danger btn-small" href="#">Remove</a></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>1</td>-->
+        <!--<td>Bardwal</td>-->
+        <!--<td>Habitation</td>-->
+        <!--<td>Habitation name</td>-->
+        <!--<td><a class="btn btn-danger btn-small" href="#">Remove</a></td>-->
+        <!--</tr>-->
+    </tbody>
+</table>

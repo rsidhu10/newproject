@@ -1,0 +1,53 @@
+
+<div id="main_reports_div">
+    <div class="row" style="padding-left:30px; ">
+        <div class="span8">
+            <input type="hidden" id="stats_months" style="width: 180px; display: none;">
+        </div>
+        <div class="span4">
+            <button type="button" class="btn btn-danger pull-right" data-toggle="collapse"
+                    data-target="#report_settings">Settings
+            </button>
+        </div>
+    </div>
+
+    <div id="report_settings" style="" class="collapse">
+        <table class="table table-bordered table-striped table-hover table-condensed" id="report_settings_table">
+            <tr>
+                <td><input type="checkbox" id="payments_type_0" class="report_setting"> Corrections</td>
+                <td><input type="checkbox" id="payments_type_0_amount" class="report_setting"> Correction Amount</td>
+                <td><input type="checkbox" id="payments_type_1" class="report_setting"> Payments</td>
+                <td><input type="checkbox" id="payments_type_1_amount" class="report_setting"> Payment Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="payments_type_2" class="report_setting"> Autopay</td>
+                <td><input type="checkbox" id="payments_type_2_amount" class="report_setting"> Autopay Amount</td>
+                <td><input type="checkbox" id="payments_type_3" class="report_setting"> Disconnected</td>
+                <td><input type="checkbox" id="payments_type_3_amount" class="report_setting"> Disconnected Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="payments_type_4" class="report_setting"> Reconnected</td>
+                <td><input type="checkbox" id="payments_type_4_amount" class="report_setting"> Reconnected Amount</td>
+                <td><input type="checkbox" id="payments_type_5" class="report_setting"> New Accounts</td>
+                <td><input type="checkbox" id="payments_type_5_amount" class="report_setting"> New Accounts Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="payments_type_6" class="report_setting"> Prorated</td>
+                <td><input type="checkbox" id="payments_type_6_amount" class="report_setting"> Prorated Amount</td>
+                <td><input type="checkbox" id="payments_type_7" class="report_setting"> Fines</td>
+                <td><input type="checkbox" id="payments_type_7_amount" class="report_setting"> Fines Amount</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="payments_type_8" class="report_setting"> Prepay</td>
+                <td><input type="checkbox" id="payments_type_8_amount" class="report_setting"> Prepay Amount</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+    <br/><br/>
+    <span id="hierarchy_title" style="font-size: larger;">Wings</span>
+    <div id="backgrid"></div>
+    <div id="graphs" style=""></div>
+</div>

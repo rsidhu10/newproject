@@ -1,0 +1,452 @@
+<form class="form-horizontal">
+<div class="row">
+    <div class="span4">
+        <div class="control-group">
+               <label class="control-label" for="inputName">Name</label>
+
+               <div class="controls">
+                   <input type="text" id="inputName" placeholder="Name" autocomplete="off" value="<%= name %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputType">Type</label>
+
+               <div class="controls">
+                   <input type="text" id="inputType" placeholder="Type" autocomplete="off" value="<%= type %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputStatus">Status</label>
+
+               <div class="controls">
+                   <input type="text" id="inputStatus" placeholder="Status" autocomplete="off" value="<%= status %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputp_lpcd">p_lpcd</label>
+
+               <div class="controls">
+                   <input type="text" id="inputp_lpcd" placeholder="p_lpcd" autocomplete="off" value="<%= p_lpcd %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputLatitude">Latitude</label>
+
+               <div class="controls">
+                   <input type="text" id="inputLatitude" placeholder="Latitude" autocomplete="off" value="<%= latitude %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputLongitude">Longitude</label>
+
+               <div class="controls">
+                   <input type="text" id="inputLongitude" placeholder="Longitude" autocomplete="off" value="<%= longitude %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+            <!------------------------------------------->
+            <div class="control-group">
+                <label class="control-label" for="inputDeposit">Deposit</label>
+
+                <div class="controls">
+                    <input type="text" id="inputDeposit" placeholder="Deposit" autocomplete="off" value="<%= deposit %>">
+                    <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+                </div>
+            </div>
+        <!------------------------------------------->
+        <div class="control-group">
+            <label class="control-label" for="inputResidentialRate">Residential Rate</label>
+
+            <div class="controls">
+                <input type="text" id="inputResidentialRate" placeholder="Residential Rate" autocomplete="off" value="<%= rate_residential_monthly %>">
+                <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+            </div>
+        </div>
+        <!------------------------------------------->
+        <div class="control-group">
+            <label class="control-label" for="inputCommercialRate">Commercial Rate</label>
+
+            <div class="controls">
+                <input type="text" id="inputCommercialRate" placeholder="Commercial Rate" autocomplete="off" value="<%= rate_commercial_monthly %>">
+                <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+            </div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="control-group">
+               <label class="control-label" for="inputMISID">MIS ID</label>
+
+               <div class="controls">
+                   <input type="text" id="inputMISID" placeholder="MIS ID" autocomplete="off" value="<%= mis_id %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputGenPop">Gen Pop</label>
+
+               <div class="controls">
+                   <input type="text" id="inputGenPop" placeholder="Gen Pop" autocomplete="off" value="<%= gen_pop %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputSCPop">SC Pop</label>
+
+               <div class="controls">
+                   <input type="text" id="inputSCPop" placeholder="SC Pop" autocomplete="off" value="<%= sc_pop %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputGenHH">Gen HH</label>
+
+               <div class="controls">
+                   <input type="text" id="inputGenHH" placeholder="Gen HH" autocomplete="off" value="<%= gen_hh %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputSCHH">SC HH</label>
+
+               <div class="controls">
+                   <input type="text" id="inputSCHH" placeholder="SC HH" autocomplete="off" value="<%= sc_hh %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+           <!------------------------------------------->
+           <div class="control-group">
+               <label class="control-label" for="inputConnections">Connections</label>
+
+               <div class="controls">
+                   <input type="text" id="inputConnections" placeholder="Connections" autocomplete="off" value="<%= connections %>">
+                   <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+               </div>
+           </div>
+        <!------------------------------------------->
+        <div class="control-group">
+            <label class="control-label" for="inputConnections">Due Date (± Days)</label>
+
+            <div class="controls">
+                <input type="text" id="inputDueDateDays" placeholder="Due Date Days" autocomplete="off" value="<%= due_date_days %>">
+                <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">+/- Number of days from end date. </span>-->
+            </div>
+        </div>
+        <!------------------------------------------->
+        <div class="control-group">
+            <label class="control-label" for="inputBulkRate">Bulk Rate</label>
+
+            <div class="controls">
+                <input type="text" id="inputBulkRate" placeholder="Bulk Rate" autocomplete="off" value="<%= rate_bulk_monthly %>">
+                <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">+/- Number of days from end date. </span>-->
+            </div>
+        </div>
+        <!------------------------------------------->
+        <div class="control-group">
+            <label class="control-label" for="inputCutoffDate">Cutoff Date</label>
+
+            <div class="controls">
+                <input type="text" id="inputCutoffDate" placeholder="Cutoff Date" autocomplete="off" value="<%= cutoff_date %>">
+                <!--<span id="div_inputName" style="color: red;font-size: x-large;display:none;">*</span>-->
+            </div>
+        </div>
+    </div>
+<div class="span12"> <!-- ================================================ -->
+<!------------------------------------------->
+
+
+<div class="row">
+    <div class="span8">
+    <!------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- Prepay ----------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="control-group" style="margin-bottom: 0px;">
+        <label class="control-label">Prepay</label>
+
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" class="prepay_radio" name="prepay_optionsRadios" id="input_prepay_disabled"
+                       value="disabled" <%= prepay_disabled_checked %> >
+                Disabled
+            </label>
+            <label class="radio">
+                <input type="radio" class="prepay_radio" name="prepay_optionsRadios" id="input_prepay_enabled"
+                       value="enabled" <%= prepay_enabled_checked %> >
+                Enabled
+            </label>
+        </div>
+    </div>
+    <div id="input_prepay_settings" style="background-color: #e4e4e4;margin-left:100px;">
+        <div class="control-group collapse" id="input_prepay_enabled_settings">
+            <div class="control-group" style="padding-top: 10px;">
+                <label class="control-label" for="input_prepay_months">Months</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_prepay_months" value="<%= prepay_months %>">
+                    <p class="help-block">Number of months</p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label" for="input_prepay_amount">Total Amount</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_prepay_amount" value="<%= prepay_amount %>">
+
+                    <p class="help-block">Amount required for prepayment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- late fees --------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="control-group" style="margin-bottom: 0px;">
+        <label class="control-label">Late Fee Type</label>
+
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" class="late_fee_radio" name="late_fee_optionsRadios" id="input_late_fee_type_disabled"
+                       value="disabled" <%= late_fee_disabled_checked %> >
+                Disabled
+            </label>
+            <label class="radio">
+                <input type="radio" class="late_fee_radio" name="late_fee_optionsRadios" id="input_late_fee_type_percent"
+                       value="percent" <%= late_fee_percent_checked %>>
+                Percentage of Bill Amount
+            </label>
+            <label class="radio">
+                <input type="radio" class="late_fee_radio" name="late_fee_optionsRadios" id="input_late_fee_type_fixed"
+                       value="fixed" <%= late_fee_fixed_checked %>>
+                Fixed Amount
+            </label>
+        </div>
+    </div>
+    <div id="input_late_fee_type_settings" style="background-color: #e4e4e4;margin-left:100px;">
+        <div class="collapse" id="input_late_fee_type_percent_settings">
+            <div class="control-group" style="padding-top: 10px;margin-bottom: 0px;">
+                <label class="control-label" for="input_late_fee">Late Fee Percent</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_late_fee" value="<%= late_fee_percent %>">
+
+                    <p class="help-block">This is the percentage used to calculate the late fee for a bill.</p>
+                </div>
+            </div>
+        </div>
+        <div class="control-group collapse" id="input_late_fee_type_fixed_settings">
+            <div class="control-group" style="padding-top: 10px;">
+                <label class="control-label" for="input_late_fee_fixed_month">Late Fee (Same Month)</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_late_fee_fixed_month"
+                           value="<%= late_fee_fixed_month %>">
+
+                    <p class="help-block">This is the amount charged if the bill is paid late but in the same month as the
+                        due date.</p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label" for="input_late_fee_fixed">Late Fee (Else)</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_late_fee_fixed" value="<%= late_fee_fixed %>">
+
+                    <p class="help-block">This is the amount charged if the bill is paid late.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- New Connection fees ----------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="control-group" style="margin-bottom: 0px;">
+        <label class="control-label">New Connection Fee</label>
+
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" class="new_connection_fee_radio" name="new_connection_fee_optionsRadios" id="input_new_connection_fee_disabled"
+                       value="disabled" <%= new_connection_fee_disabled_checked %> >
+                Disabled
+            </label>
+            <label class="radio">
+                <input type="radio" class="new_connection_fee_radio" name="new_connection_fee_optionsRadios" id="input_new_connection_fee_enabled"
+                       value="enabled" <%= new_connection_fee_enabled_checked %> >
+                Enabled
+            </label>
+        </div>
+    </div>
+    <div id="input_new_connection_fee_settings" style="background-color: #e4e4e4;margin-left:100px;">
+        <div class="control-group collapse" id="input_new_connection_fee_enabled_settings">
+            <div class="control-group" style="padding-top: 10px;">
+                <label class="control-label" for="input_new_connection_fee_gc">GC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_new_connection_fee_gc"
+                           value="<%= new_connection_fee_gc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_new_connection_fee_bc">BC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_new_connection_fee_bc" value="<%= new_connection_fee_bc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label" for="input_new_connection_fee_sc">SC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_new_connection_fee_sc" value="<%= new_connection_fee_sc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- Disconnection fees ------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="control-group" style="margin-bottom: 0px;">
+        <label class="control-label">Disconnection Fee</label>
+
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" class="disconnection_fee_radio" name="disconnection_fee_optionsRadios" id="input_disconnection_fee_disabled"
+                       value="disabled" <%= disconnection_fee_disabled_checked %> >
+                Disabled
+            </label>
+            <label class="radio">
+                <input type="radio" class="disconnection_fee_radio" name="disconnection_fee_optionsRadios" id="input_disconnection_fee_enabled"
+                       value="enabled" <%= disconnection_fee_enabled_checked %> >
+                Enabled
+            </label>
+        </div>
+    </div>
+    <div id="input_disconnection_fee_settings" style="background-color: #e4e4e4;margin-left:100px;">
+        <div class="control-group collapse" id="input_disconnection_fee_enabled_settings">
+            <div class="control-group" style="padding-top: 10px;">
+                <label class="control-label" for="input_disconnection_fee_gc">GC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_disconnection_fee_gc"
+                           value="<%= disconnection_fee_gc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_disconnection_fee_bc">BC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_disconnection_fee_bc" value="<%= disconnection_fee_bc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label" for="input_disconnection_fee_sc">SC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_disconnection_fee_sc" value="<%= disconnection_fee_sc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- Reconnection fees ------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="control-group" style="margin-bottom: 0px;">
+        <label class="control-label">Reconnection Fee</label>
+
+        <div class="controls">
+            <label class="radio">
+                <input type="radio" class="reconnection_fee_radio" name="reconnection_fee_optionsRadios" id="input_reconnection_fee_disabled"
+                       value="disabled" <%= reconnection_fee_disabled_checked %> >
+                Disabled
+            </label>
+            <label class="radio">
+                <input type="radio" class="reconnection_fee_radio" name="reconnection_fee_optionsRadios" id="input_reconnection_fee_enabled"
+                       value="enabled" <%= reconnection_fee_enabled_checked %> >
+                Enabled
+            </label>
+        </div>
+    </div>
+    <div id="input_reconnection_fee_settings" style="background-color: #e4e4e4;margin-left:100px;">
+        <div class="control-group collapse" id="input_reconnection_fee_enabled_settings">
+            <div class="control-group" style="padding-top: 10px;">
+                <label class="control-label" for="input_reconnection_fee_gc">GC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_reconnection_fee_gc"
+                           value="<%= reconnection_fee_gc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_reconnection_fee_bc">BC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_reconnection_fee_bc" value="<%= reconnection_fee_bc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group" style="margin-bottom: 0px;">
+                <label class="control-label" for="input_reconnection_fee_sc">SC</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="input_reconnection_fee_sc" value="<%= reconnection_fee_sc %>">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="span4">
+    </div>
+</div>
+
+
+<!------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------- All Done ------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------->
+<div class="control-group">
+    <div class="controls">
+        <!--<label class="checkbox">-->
+        <!--<input type="checkbox"> Remember me-->
+        <!--</label>-->
+        <button class="btn btn-primary" type="button" id="update_habitation_settings"
+                data-loading-text="Creating..."
+                autocomplete="off">Update
+        </button>
+    </div>
+</div>
+</div>
+</div>
+<!-------------------------------------------><!------------------------------------------->
+
+
+</form>

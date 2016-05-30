@@ -1,0 +1,67 @@
+<div class="well">
+
+    <div class="btn-group" data-toggle="buttons-radio" style="margin-bottom: 10px;" id="payments2_search_by">
+        <button type="button" class="btn active" data-value="entry_date">Entry Date</button>
+        <button type="button" class="btn" data-value="payment_date">Payment Date</button>
+    </div>
+
+    <div class="controls">
+
+        <div class="input-prepend">
+            <span class="add-on" style="width:75px;color:#000 !important;">From: </span>
+            <input type="text" class="span2 datepicker" data-date-format="d-m-yyyy" id="filter_from_date"
+                   value="<%= filter_from_date %>" style="margin-top: 0px;">
+
+            <span class="add-on" style="margin-left:15px; width:75px;color:#000 !important;">To: </span>
+            <input type="text" class="span2 datepicker" data-date-format="d-m-yyyy" id="filter_to_date"
+                   value="<%= filter_to_date %>" style="margin-top: 0px;">
+
+            <button type="submit" id="update_payments2_report_btn" class="btn btn-primary"
+                    data-loading-text="Updating..." style="display: inline; margin-left: 10px;margin-top: 0px;">
+                Update <i class="icon-refresh icon-white"></i>
+            </button>
+            <button type="submit" id="update_payments2_report_btn_download" class="btn btn-primary"
+                    data-loading-text="Please Wait..." style="display: inline; margin-left: 10px;margin-top: 0px;">
+                Download CSV<i class="icon-download-alt icon-white"></i>
+            </button>
+
+        </div>
+
+
+    </div>
+
+    <div style="margin-top: 10px;">
+        <input type="hidden" id="payments2_scheme_operated_by" style="width: 180px; display: none;">
+        <input type="hidden" id="payments2_subdivision_dd" style="width: 180px; display: none;">
+        <input type="hidden" id="payments2_block_dd" style="width: 180px; display: none;">
+        <input type="hidden" id="payments2_panchayat_dd" style="width: 180px; display: none;">
+        <input type="hidden" id="payments2_village_dd" style="width: 180px; display: none;">
+        <input type="hidden" id="payments2_habitation_dd" style="width: 180px; display: none;">
+
+
+    </div>
+</div>
+<div align="center">
+    <div style="display: inline;" class="span2">
+        <div class="alert alert-info" style="text-align: center;">
+            <h1><span id="payments2_schemes">0</span></h1> Schemes
+        </div>
+    </div>
+    <div class="span2" style="display: inline;">
+        <div class="alert alert-error" style="text-align: center;">
+            <h1><span id="payments2_habitations">0</span></h1> Habitations
+        </div>
+    </div>
+    <div class="span3" style="display: inline;">
+        <div class="alert" style="text-align: center;">
+            <h1><span id="payments2_payments">0</span></h1> Payments
+        </div>
+    </div>
+    <div style="display: inline;" class="span5">
+        <div class="alert alert-success" style="text-align: center;">
+            <h1><span id="payments2_amount">0</span></h1> रू Collected
+        </div>
+    </div>
+</div>
+
+<div id="main_reports_div"></div>

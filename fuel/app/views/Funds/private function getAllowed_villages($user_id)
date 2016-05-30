@@ -1,0 +1,26 @@
+   private function getAllowed_villages($user_id)
+    {
+        $villages = array();
+        $user_habitations = $this->getAllowed_habitations($user_id);
+        foreach ($user_habitations as $habitation_id) {
+            $habitation = \Model_Habitation::find($habitation_id);
+            $village = $habitation->village;
+            if (!in_array($village->id, $villages)) {
+                $villages[] = $village->id;
+            }
+        }
+        return $villages;
+    }
+
+    private function getAllowed_panchayats($user_id)
+    {
+        $panchayats = array();
+        $villages = $this->getAllowed_villages($user_id);
+        foreach ($villages as $village_id) {
+            $village = \Model_Village::find($village_id);
+            $panchayat = $village->panchayat;
+            if (!in_array($panchayat->id, $panchayats)) {
+                $panchayats[] = $panchayat->id;
+            }
+        }
+        return $panchayats;
