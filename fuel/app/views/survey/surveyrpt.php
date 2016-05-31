@@ -9,6 +9,7 @@
         	<p>© PunjabWater.net 2016</p>
     	</footer>
 	</div>
+	<?php echo Asset::js('jquery-1.8.0.min.js');?>
 	<script data-main="assets/js/main" src="assets/js/libs/require.js"></script>
 	<?php if(Session::get_flash('success')) :  ?>
 	    <div class="alert alert-success"><?php echo Session::get_flash('success');?>
@@ -64,7 +65,7 @@
 						$shours ="More than 10Hrs";
 					}elseif($slevel->supply_hours==3 ){	
 						$shours ="Less than 10Hrs";
-					}elseif (condition) {
+					}else{
 						$shours ="";
 					}		
 					if($slevel->cost_recovery==1 ){
@@ -73,7 +74,7 @@
 						$rcost ="Recovery 70-99%";
 					}elseif($slevel->cost_recovery==3 ){	
 						$rcost ="Recovery 70%";
-					}elseif (condition) {
+					}else{
 						$rcost ="";
 					}			
 			?>

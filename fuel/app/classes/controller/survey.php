@@ -120,7 +120,7 @@
 					->join('survey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
 					->where('mappedsurvey.deleted','=',0)
-					->where('villages.district_id','=','D05')
+					->where('villages.district_id','=','D04')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();

@@ -9,7 +9,7 @@ left join
 mappedsurvey on
 survey.vcode = mappedsurvey.surveycode
 where (mappedsurvey.deleted is null or mappedsurvey.deleted = 1)
-and survey.block = 'Jal. east' order by survey.village";  
+and survey.block = 'dhilwan' order by survey.village";  
       
       $result = mysqli_query($connect, $sql);  
       $count =0;
@@ -31,7 +31,7 @@ function load_misvillage()
       			left join mappedsurvey on
 				villages.village_misid = mappedsurvey.misid  
 				where (mappedsurvey.id IS NULL or mappedsurvey.deleted = 1)
-				and block_id = 'D05B06' and habtype =0 
+				and block_id = 'D04B05' and habtype =0 
 				ORDER BY village_name";  // talwandi sabo b03
       $result = mysqli_query($connect, $sql);  
       $count =0;
