@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
+    <?php echo Asset::js('jquery-1.8.0.min.js'); ?>
     <?php echo Asset::css('bootstrap.css'); ?>
     <?php echo Asset::js('bootstrap.js'); ?>
 <!--    <?php echo Asset::js('select2.js'); ?>

@@ -6,7 +6,8 @@ return array(
 	'wing/:id' => 'wing/index',
 	'mytest/:id' => 'mytest/index',
 	'sfunds/:id' => 'statefunds/editsfunds',
-
+	'mydivn' => 'survey/mydivn',
+    'myvill' => 'survey/myvill',
 	
 	
 

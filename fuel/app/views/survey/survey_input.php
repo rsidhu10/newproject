@@ -7,14 +7,14 @@
 <html>
 <head>
 	<title>DWSS Punjab</title>
-	
-	<?php echo Asset::js('funds.js'); ?>
-	<?php echo Asset::js('test.js'); ?>
+	<?php echo Asset::js('jquery-1.8.0.min.js');?>
+	<?php //echo Asset::js('funds.js'); ?>
+	<?php //echo Asset::js('test.js'); ?>
 	
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<?php echo Asset::css('jquery-ui.css'); ?>
 	<?php echo Asset::css('datepicker.css'); ?>
-	<?php echo Asset::js('jquery-1.8.0.min.js');?>
+	
 	<?php echo Asset::js('jquery-ui.js'); ?>
 
 </head>
@@ -181,7 +181,7 @@
 								<input type="button" value="Back" name="back" class="btn btn-primary" style="width: 100px" >
 							</a>
 							<input type="button" value="Cancel" name="cancel" class="btn btn-primary" style="width: 100px"  onclick="location.reload()"></input>
-							<input type="submit" value="Save" name="save_survey" class="btn btn-primary" style="width: 100px"  ></input>
+							<input type="submit" value="Save" name="save_survey" class="btn btn-primary" style="width: 100px" onclick="checkdata()" ></input>
 							<!-- <input type="button" value="Test" name="add" class="btn btn-primary" style="width: 100px" on onclick="return checkdata(this);" ></input> -->
 							<input type="hidden" name="circle_id" id="circle_id" value="" style="width: 10%;" ></input>
 							</center>
@@ -207,23 +207,14 @@
 
 
 
-<script type="text/javascript">
 
-	$(document).ready(function(){
-		$('#habitation').change(function(){
-			var habcode = $(this).val();  
-           	habcode = habcode.trim();
-         	// alert(habcode);  	
-					});
-	});
-</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#district').change(function(){
 		var discode = $(this).val();
 		discode = discode.trim();
-		alert(discode);
+		console.log("Sending Post "+ discode);
 		var target = '/mydivn';
 		var data = {
 			districtid: discode,
@@ -231,11 +222,50 @@ $(document).ready(function(){
 		$.ajax({
 			url: target,
 			dataType: 'json',
+			data:data,
 			type: 'POST',
 			success:function(data,textstatus,XMLhttpRequest){
-				if(data.valid){
-					alert('Congrats')
-				}
+				//if(data.valid){
+					console.log(data);
+				//}
+				$("#division").empty();
+				$("#division").append( $('<option></option>').val("0").html("Select Division") );
+				$.each(data.message,function(){
+					console.log(this);
+					$("#division").append( $('<option></option>').val(this.value).html(this.text) );
+				});
+			}
+		});
+
+	});
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#division').change(function(){
+		var divcode = $(this).val();
+		divcode = divcode.trim();
+		console.log("Sending Post "+ divcode);
+		var target = '/myvill';
+		var data = {
+			divisionid: divcode,
+		};
+		$.ajax({
+			url: target,
+			dataType: 'json',
+			data:data,
+			type: 'POST',
+			success:function(data,textstatus,XMLhttpRequest){
+				//if(data.valid){
+					console.log(data);
+				//}
+				$("#habitation").empty();
+				$("#habitation").append( $('<option></option>').val("0").html("Select Habitation") );
+				$.each(data.vill,function(){
+					console.log(this);
+					$("#habitation").append( $('<option></option>').val(this.value).html(this.text) );
+				});
 			}
 		});
 
@@ -244,3 +274,56 @@ $(document).ready(function(){
 </script>
 
 
+<script type="text/javascript">
+	function checkdata(){
+		
+		var $e_district 	= parseInt(document.getElementById("district").value);
+		var $e_division   	= parseInt(document.getElementById("division").value);
+		var $e_habitation 	= parseInt(document.getElementById("habitation").value);
+		var $e_component    = parseFloat(document.getElementById("component").value);
+		var $e_supply_hr    = parseFloat(document.getElementById("supply_hr").value);
+		var $e_recovery    	= parseFloat(document.getElementById("recovery").value);
+		
+		if($e_district =="0"){
+			document.getElementById('mess_district').innerHTML ="*(required)";
+			document.getElementById('district').focus();
+			return 
+		}
+		if($e_division =="0"){
+			document.getElementById('mess_division').innerHTML ="*(required)";
+			document.getElementById('division').focus();
+			return
+		}
+
+		if($e_habitation =="0"){
+			document.getElementById('mess_habitation').innerHTML ="*(required)";
+			document.getElementById('habitation').focus();
+			return
+		}
+
+		if($e_component =="0"){
+			document.getElementById('mess_component').innerHTML ="*(required)";
+			document.getElementById('district').focus();
+			return false
+		}
+		if($e_supply_hr =="0"){
+			document.getElementById('mess_supply_hr').innerHTML ="*(required)";
+			document.getElementById('division').focus();
+			return
+		}
+
+		if($e_recovery =="0"){
+			document.getElementById('mess_recovery').innerHTML ="*(required)";
+			document.getElementById('habitation').focus();
+			return
+		}
+
+		
+	
+	
+
+		
+
+	}
+
+</script>

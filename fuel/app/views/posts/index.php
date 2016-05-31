@@ -111,6 +111,7 @@
 		$com2b   = $wb_2b[0] + $wb_2b[1] + $wb_2b[2];
 		$com4    = $wb_com4[0] + $wb_com4[1] + $wb_com4[2];
 		$gtamt   = $com1a + $com2a + $com2b + $com4;
+        
 		$cen_normal  = $normal[0] + $normal[1] + $normal[2];
         $cen_sustain = $sustain[0] + $sustain[1] + $sustain[2];
         $cen_earmark = $earmark[0] + $earmark[1] + $earmark[2];

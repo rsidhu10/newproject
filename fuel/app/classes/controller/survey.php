@@ -1,6 +1,11 @@
 <?php
-	class Controller_survey extends Controller_Template{
-	
+	class Controller_Survey extends Controller_Hybrid{
+	public function before()
+    {
+        parent::before();
+        Log::debug('Controller_REST Controller: ' . $this->request->controller);
+        Log::debug('Controller_REST     Action: ' . $this->request->action);
+    }    
 	public function action_map()
 	{
 		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
@@ -271,16 +276,22 @@
         $this->template->title = 'Funds Released';
         $this->template->content = View::forge('survey/surveyrpt', $result, false);
 	}
-	
+	public function get_mydivn()
+	{
+		\Log::Debug("In function GET inmydivn:");
+		
+		$this->response(array("test" => "hello"));
+	}
 	public function post_mydivn()
 	{
-
-		$id = \Input::post("term");
+		\Log::Debug("In function Post inmydivn:" . print_r($_POST,true));
+		$id = \Input::post("districtid");
 		// $this->param("id");//District ID
-		var_dump($id);
+		\Log::Debug("In function Post inmydivn:" . $id);
+
 		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
 			
-			$result['q'] =DB::select('*')
+			$result =DB::select('*')
 					->from('divisions')
 					->join('districts','LEFT')
 					->on('districts.id', '=', 'divisions.district_id')
@@ -288,20 +299,49 @@
 					->on('circles.id', '=', 'districts.circle_id')
 					->where('divisions.district_id','=',$id)
 					->order_by('division_name','asc')
-					->as_object()
+					->as_assoc()
 					->execute();
 			
 			$data['response'] = 'true';
 			$data['message'] = array();
-			foreach($q as $model){
-				$data['message'][] = array('value' => $model['divsion_id'],
-										'text' => $model['division_name'] );
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['message'][] = array('value' => $model['division_id'],
+										   'text'  => $model['division_name'] );
 			}		
-
+			\Log::Debug("Returning data:" . print_r($data,true));
 			$this->response($data);
-	}	
-	
-}
+		}	
+	}
+	public function post_myvill()
+	{
+		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
+		$id = \Input::post("divisionid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function Post in myvill:" . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			$result =DB::select('*')
+					->from('villages')
+					->join('divisions','LEFT')
+					->on('divisions.division_id', '=', 'villages.division_id')
+					->where('villages.division_id','=',$id)
+					->order_by('village_name','asc')
+					->as_assoc()
+					->execute();
+			
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('value' => $model['village_id'],
+										   'text'  => $model['village_name'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
 
 
 }
