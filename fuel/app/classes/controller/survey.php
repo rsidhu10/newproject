@@ -44,8 +44,10 @@
 		public function action_save()
 	{
 		if(Input::post('save')){
+
 			$village = Input::all();
 			//var_dump($order);
+            Log::debug('action_save: t1: ' . microtime(true));
 			$data =array(
 					'surveycode'	=> $village['imis_village'],
 					'misid' 		=> $village['mis_village'],
@@ -54,16 +56,19 @@
 				$result = DB::insert('mappedsurvey',array_keys($data))
 					->values(array_values($data))
 					->execute();		
+            Log::debug('action_save: t2: ' . microtime(true));
 			 
 			$funds = Input::all();
 	
 			$data2 =array(
 					'survey_mapped' 		=> 1,
 			);
+            Log::debug('action_save: t3: ' . microtime(true));
 			$result = DB::update('villages')
 					->set($data2)
 					->where('village_misid', $village['mis_village'])
 					->execute();
+            Log::debug('action_save: t4: ' . microtime(true));
 			$data3 =array(
 					'mapped' 		=> 1,
 			);
@@ -71,6 +76,7 @@
 					->set($data3)
 					->where('vcode', $village['imis_village'])
 					->execute();			
+            Log::debug('action_save: t5: ' . microtime(true));
 	}
 			session::set_flash('success','Village Mapped Successully');
 			Response::redirect('survey/chog','refresh');
