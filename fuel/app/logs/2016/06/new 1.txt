@@ -1,0 +1,32 @@
+CREATE TABLE `users` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `group` int(11) DEFAULT NULL,
+
+
+create_table `auditlogs` (
+`id` int(11) UNSIGNED NOT NULL,
+`user_id` int(11) UNSIGNED NOT NULL,
+`consumer_id` int(11) UNSIGNED NOT NULL,
+`habitation_id` int(11) UNSIGNED NOT NULL,
+`village_id` int(11) UNSIGNED NOT NULL,
+`panchayat_id` int(11) UNSIGNED NOT NULL,
+`block_id` int(11) UNSIGNED NOT NULL,
+`subdivision_id` int(11) UNSIGNED NOT NULL,
+`division_id` int(11) UNSIGNED NOT NULL,
+`district_id` int(11) UNSIGNED NOT NULL,
+`circle_id` int(11) UNSIGNED NOT NULL,
+`wing_id` int(11) UNSIGNED NOT NULL,
+`scheme_id` int(11) UNSIGNED NOT NULL,
+`collectioncenter_id` int(11) UNSIGNED NOT NULL,
+`type` int(11) UNSIGNED NOT NULL DEFAULT =0,
+`message_public` varchar(5000),
+`message_private` varchar(5000)
+);
+            `type` => array(`constraint` => 11, `type` => `int`, `default` => 0, `null` => false),
+            `message_public` => array(`constraint` => 5000, `type` => `varchar`, `null` => true),
+            `message_private` => array(`constraint` => 5000, `type` => `varchar`, `null` => true)
+        )

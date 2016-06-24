@@ -8,8 +8,8 @@ function load_village()
 left join
 mappedsurvey on
 survey.vcode = mappedsurvey.surveycode
-where (mappedsurvey.deleted is null or mappedsurvey.deleted = 1)
-and survey.block = 'dhilwan' order by survey.village";  
+where (mappedsurvey.id is null)
+and survey.block = 'abohar' order by survey.village";  
       
       $result = mysqli_query($connect, $sql);  
       $count =0;
@@ -30,8 +30,8 @@ function load_misvillage()
       			from villages
       			left join mappedsurvey on
 				villages.village_misid = mappedsurvey.misid  
-				where (mappedsurvey.id IS NULL or mappedsurvey.deleted = 1)
-				and block_id = 'D04B05' and habtype =0 
+				where (mappedsurvey.id IS NULL)
+				and block_id = 'D13B05' and habtype =0 
 				ORDER BY village_name";  // talwandi sabo b03
       $result = mysqli_query($connect, $sql);  
       $count =0;
@@ -139,47 +139,47 @@ function load_misvillage()
 
 </body>
 </html>
-<script type="text/javascript">
+ <script type="text/javascript">
 
-	$(function(){
-		//alert(0);
-		$('#letter_date').datepicker({ dateFormat : 'yy-m-d',
-			changeMonth: true,
-			changeYear: true}
-		);
+// 	$(function(){
+// 		//alert(0);
+// 		$('#letter_date').datepicker({ dateFormat : 'yy-m-d',
+// 			changeMonth: true,
+// 			changeYear: true}
+// 		);
 		
-		$('#letter_date').datepicker( "bounce", "showAnim", $( this ).val() 
-		);
+// 		$('#letter_date').datepicker( "bounce", "showAnim", $( this ).val() 
+// 		);
 
 
 
-	function mynormal(){
+// 	// function mynormal(){
     	
-    var x = document.getElementById("#normal");
-    alert("gotit");
-    //x.value = x.value.toUpperCase();
-    }
-});
+//  //    var x = document.getElementById("#normal");
+//  //    alert("gotit");
+//  //    //x.value = x.value.toUpperCase();
+//  //    }
+// });
 </script>		
 
 <script type="text/javascript">
-	function checkdata(){
+	// function checkdata(){
 		
-		var $village1 = document.getElementById("imis_village").value;
-		var $village2 = document.getElementById("mis_village").value;
+		// var $village1 = document.getElementById("imis_village").value;
+		// var $village2 = document.getElementById("mis_village").value;
 		
-		var total = $wb_1a_ent + $wb_2a_ent + $wb_2b_ent + $wb_com4_ent;
+		// // var total = $wb_1a_ent + $wb_2a_ent + $wb_2b_ent + $wb_com4_ent;
 
-		if($village1 =="0"){
-			document.getElementById('mess_village1').innerHTML ="*(required)";
-			document.getElementById('imis_village').focus();
-			return
-		}else if($village2 =='0')
-		{
-			document.getElementById('mess_village2').innerHTML ="*(required)";
-			document.getElementById('mis_village').focus();
-			return
-		}
+		// if($village1 =="0"){
+		// 	document.getElementById('mess_village1').innerHTML ="*(required)";
+		// 	document.getElementById('imis_village').focus();
+		// 	return
+		// }else if($village2 =='0')
+		// {
+		// 	document.getElementById('mess_village2').innerHTML ="*(required)";
+		// 	document.getElementById('mis_village').focus();
+		// 	return
+		// }
 
 
 </script>

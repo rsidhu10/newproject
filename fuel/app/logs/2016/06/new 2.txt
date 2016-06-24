@@ -1,0 +1,22 @@
+create_table(`auditlogs`, array(
+            `id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true, `auto_increment` => true),
+            `created_at` => array(`type` => `timestamp`, `null` => false),
+
+            `user_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `consumer_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `habitation_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `village_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `panchayat_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `block_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `subdivision_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `division_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `district_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `circle_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `wing_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `scheme_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+            `collectioncenter_id` => array(`constraint` => 11, `type` => `int`, `unsigned` => true),
+
+            `type` => array(`constraint` => 11, `type` => `int`, `default` => 0, `null` => false),
+            `message_public` => array(`constraint` => 5000, `type` => `varchar`, `null` => true),
+            `message_private` => array(`constraint` => 5000, `type` => `varchar`, `null` => true)
+        )

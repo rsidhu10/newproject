@@ -1,0 +1,18 @@
+SELECT d.district_name,di.division_name, u.village,v.village_misid FROM `underprogress` as u
+left join villages as v on
+u.code = v.village_misid
+left join divisions as di on
+di.division_id = v.division_id
+left join districts as d on
+d.id = v.district_id
+
+
+************************************
+SELECT d.district_name,di.division_name,u.village,u.code FROM `underprogress` as u
+left join villages as v on
+u.code = v.village_misid
+left join divisions as di on
+di.division_id = v.division_id
+left join districts as d on
+d.id = v.district_id
+order by d.district_name,di.division_name

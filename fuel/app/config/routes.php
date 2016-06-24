@@ -8,6 +8,7 @@ return array(
 	'sfunds/:id' => 'statefunds/editsfunds',
 	'mydivn' => 'survey/mydivn',
     'myvill' => 'survey/myvill',
+    'myhab'  => 'targets/myhab',
 	
 	
 
