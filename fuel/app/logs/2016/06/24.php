@@ -136,3 +136,26 @@ INFO - 2016-06-24 09:52:29 --> Fuel\Core\Request::execute - Called
 INFO - 2016-06-24 09:52:29 --> Fuel\Core\Request::execute - Setting main Request
 DEBUG - 2016-06-24 09:52:29 --> Controller_REST Controller: Controller_Survey
 DEBUG - 2016-06-24 09:52:29 --> Controller_REST     Action: chog
+WARNING - 2016-06-24 11:00:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2016-06-24 11:00:04 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "survey/chog"
+INFO - 2016-06-24 11:00:04 --> Fuel\Core\Request::execute - Called
+INFO - 2016-06-24 11:00:04 --> Fuel\Core\Request::execute - Setting main Request
+DEBUG - 2016-06-24 11:00:04 --> Controller_REST Controller: Controller_Survey
+DEBUG - 2016-06-24 11:00:04 --> Controller_REST     Action: chog
+WARNING - 2016-06-24 11:00:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2016-06-24 11:00:43 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "survey/save"
+INFO - 2016-06-24 11:00:43 --> Fuel\Core\Request::execute - Called
+INFO - 2016-06-24 11:00:43 --> Fuel\Core\Request::execute - Setting main Request
+DEBUG - 2016-06-24 11:00:43 --> Controller_REST Controller: Controller_Survey
+DEBUG - 2016-06-24 11:00:43 --> Controller_REST     Action: save
+DEBUG - 2016-06-24 11:00:43 --> action_save: t1: 1466758843.7983
+DEBUG - 2016-06-24 11:00:44 --> action_save: t2: 1466758844.808
+DEBUG - 2016-06-24 11:00:44 --> action_save: t3: 1466758844.8082
+DEBUG - 2016-06-24 11:00:44 --> action_save: t4: 1466758844.8335
+DEBUG - 2016-06-24 11:00:44 --> action_save: t5: 1466758844.8718
+WARNING - 2016-06-24 11:00:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2016-06-24 11:00:45 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "survey/chog"
+INFO - 2016-06-24 11:00:45 --> Fuel\Core\Request::execute - Called
+INFO - 2016-06-24 11:00:45 --> Fuel\Core\Request::execute - Setting main Request
+DEBUG - 2016-06-24 11:00:45 --> Controller_REST Controller: Controller_Survey
+DEBUG - 2016-06-24 11:00:45 --> Controller_REST     Action: chog
