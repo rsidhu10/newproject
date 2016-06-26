@@ -349,5 +349,90 @@
 		}	
 	}
 
+	public function post_mapsur()
+	{
+		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
+		$id = \Input::post("surveyid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function Post in Survey Block /mapsur :" . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			// $result =DB::select('*')
+			// 		->from('villages')
+			// 		->join('mappedsurvey','LEFT')
+			//  		->on('mappedsurvey.misid','=', 'villages.village_misid')
+			// 		->where('villages.block_id','=',$id)
+			// 		->where('mappedsurvey.misid','is', null)
+			// 		->order_by('village_name','asc')
+			// 		->as_assoc()
+			// 		->execute();
+			
+			$result =DB::select('*')
+					->from('survey')
+					->join('mappedsurvey','LEFT')
+					->on('mappedsurvey.surveycode','=', 'survey.vcode')
+					->where('survey.block_id','=',$id)
+					->where('mappedsurvey.misid','is', null)
+					->order_by('village','asc')
+					->as_assoc()
+					->execute();
+
+
+
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('value1' => $model['vcode'],
+										'text1'  => $model['village'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
+
+	public function post_maphab()
+	{
+		\Log::Debug("In function Post in my MIS Village:" . print_r($_POST,true));
+		$id = \Input::post("villageid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function Post in MIS Block /maphab :" . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			$result =DB::select('*')
+					->from('villages')
+					->join('mappedsurvey','LEFT')
+			 		->on('mappedsurvey.misid','=', 'villages.village_misid')
+					->where('villages.block_id','=',$id)
+					->where('mappedsurvey.misid','is', null)
+					->order_by('village_name','asc')
+					->as_assoc()
+					->execute();
+			
+			// $result =DB::select('*')
+			// 		->from('survey')
+			// 		->join('mappedsurvey','LEFT')
+			// 		->on('mappedsurvey.surveycode','=', 'survey.vcode')
+			// 		->where('survey.block_id','=',$id)
+			// 		->where('mappedsurvey.misid','is', null)
+			// 		->order_by('village','asc')
+			// 		->as_assoc()
+			// 		->execute();
+
+
+
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('value2' => $model['village_misid'],
+										'text2'  => $model['village_name'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
 
 }

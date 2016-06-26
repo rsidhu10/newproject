@@ -9,6 +9,8 @@ return array(
 	'mydivn' => 'survey/mydivn',
     'myvill' => 'survey/myvill',
     'myhab'  => 'targets/myhab',
+    'mapsur'  => 'survey/mapsur',
+    'maphab'  => 'survey/maphab',
 	
 	
 
