@@ -25,13 +25,13 @@
 				<fieldset>
 					<tr>
 						<th>Survey VILLAGE</th>
-						<th>
+						<th style="width: 30%;">
 							<select name="imis_village" id = "imis_village" class="form-control imisvillage">
 							</select>
 						</th>
 						<?php Log::debug('Combofill Survey:t6: '. microtime(true));?>
 						<th>MIS VILLAGE</th>
-						<th>
+						<th style="width: 30%;">
 							<select name="mis_village" id = "mis_village" class="form-control misvillage">
 							<option  value="0">Select MIS Village</option>
 							</select>
@@ -43,7 +43,7 @@
 				</fieldset>
 			</thead>	
 		</table>
-		<table class="table table-hover">
+		<table class="table table-striped table-condensed table-hover">
 		<thead>
 			<th></th>
 			<th>Sr.</th>

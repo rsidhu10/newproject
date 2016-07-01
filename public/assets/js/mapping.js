@@ -1,6 +1,14 @@
 $(document).ready(function(){
-	// document.getElementById('mess_division').innerHTML ="";
-	var surcode = 'D13B05';
+// 	// document.getElementById('mess_division').innerHTML ="";
+// "Ferozepur"
+// "Ghall Khurd"
+// "Guruhar Sahai"
+// "Makhu"
+// "Mamdot"
+// "Zira"
+
+
+	var surcode = 'ferozepur';
 	surcode = surcode.trim();
 	console.log("Sending Post "+ surcode);
 	var target = '/mapsur';
@@ -30,7 +38,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	// document.getElementById('mess_division').innerHTML ="";
-	var habcode = 'D13B05';
+	var habcode = 'D13B01';
 	habcode = habcode.trim();
 	console.log("Sending Post for MIS Village "+ habcode);
 	var target = '/maphab';

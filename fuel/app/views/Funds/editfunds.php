@@ -76,7 +76,7 @@
 			</tbody>
 		</table>
 	</div>
-
+</form>
 </body>
 </html>
 <script type="text/javascript">

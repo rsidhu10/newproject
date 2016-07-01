@@ -126,7 +126,7 @@
 					->join('survey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
 					->where('mappedsurvey.deleted','=',0)
-					->where('villages.district_id','=','D22')
+					->where('villages.district_id','=','D13')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();
@@ -372,7 +372,7 @@
 					->from('survey')
 					->join('mappedsurvey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode')
-					->where('survey.block_id','=',$id)
+					->where('survey.block','=',$id)
 					->where('mappedsurvey.misid','is', null)
 					->order_by('village','asc')
 					->as_assoc()
@@ -407,6 +407,7 @@
 			 		->on('mappedsurvey.misid','=', 'villages.village_misid')
 					->where('villages.block_id','=',$id)
 					->where('mappedsurvey.misid','is', null)
+					->where('villages.habtype','=',0)
 					->order_by('village_name','asc')
 					->as_assoc()
 					->execute();
