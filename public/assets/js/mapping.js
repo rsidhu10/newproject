@@ -1,14 +1,18 @@
 $(document).ready(function(){
-// 	// document.getElementById('mess_division').innerHTML ="";
-// "Ferozepur"
-// "Ghall Khurd"
-// "Guruhar Sahai"
-// "Makhu"
-// "Mamdot"
-// "Zira"
+// Batala
+// Dera Baba Nanak
+// Dhariwal
+// Dinanagar
+// Dorangla
+// Fatehgarh Churrian
+// Gurdaspur
+// Kahnuwan
+// Kalanour
+// Qadian
+// Shri Hargobindpur
 
 
-	var surcode = 'ferozepur';
+	var surcode = 'dera baba Nanak';
 	surcode = surcode.trim();
 	console.log("Sending Post "+ surcode);
 	var target = '/mapsur';
@@ -35,10 +39,9 @@ $(document).ready(function(){
 
 });
 
-
 $(document).ready(function(){
 	// document.getElementById('mess_division').innerHTML ="";
-	var habcode = 'D13B01';
+	var habcode = 'D01B14';
 	habcode = habcode.trim();
 	console.log("Sending Post for MIS Village "+ habcode);
 	var target = '/maphab';

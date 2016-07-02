@@ -11,6 +11,9 @@ return array(
     'myhab'  => 'targets/myhab',
     'mapsur'  => 'survey/mapsur',
     'maphab'  => 'survey/maphab',
+    'myblock'  => 'survey/myblock',
+    'mismap'  => 'survey/mismap',
+    'dist'    => 'survey/dist',
 	
 	
 

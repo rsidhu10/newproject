@@ -31,7 +31,7 @@
 					->join('survey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
 					->where('mappedsurvey.deleted','=',0)
-					->where('district_id','=','D22')
+					->where('district_id','=','D17')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();
@@ -126,7 +126,7 @@
 					->join('survey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
 					->where('mappedsurvey.deleted','=',0)
-					->where('villages.district_id','=','D13')
+					->where('villages.district_id','=','D01')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();
@@ -319,6 +319,47 @@
 			$this->response($data);
 		}	
 	}
+
+	public function post_myblock()
+	{
+		\Log::Debug("In function Post in mydivn:" . print_r($_POST,true));
+		$id = \Input::post("districtid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function Post in my divn:" . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			$result =DB::select('block_id','block_name')
+					->from('blocks')
+					->join('districts','LEFT')
+					->on('districts.id', '=', 'blocks.district_id')
+					->where('blocks.district_id','=',$id)
+					->order_by('block_name','asc')
+					->as_assoc()
+					->execute();
+			
+			$data['response'] = 'true';
+			$data['message'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['message'][] = array('value' => $model['block_id'],
+										   'text'  => $model['block_name'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
+
+
+
+
+
+
+
+
+
+
+
 	public function post_myvill()
 	{
 		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
@@ -349,6 +390,38 @@
 		}	
 	}
 
+	public function post_mismap()
+	{
+		\Log::Debug("In function MIS Block:" . print_r($_POST,true));
+		$id = \Input::post("blockid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function MIS BLock in mismap controller :" . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			$result =DB::select('village_misid', 'village_name')
+					->from('villages')
+					->join('blocks','LEFT')
+					->on('blocks.block_id', '=', 'villages.block_id')
+					->where('villages.block_id','=',$id)
+					->order_by('village_name','asc')
+					->as_assoc()
+					->execute();
+			
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('bvalue' => $model['village_misid'],
+										'btext'  => $model['village_name'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
+
+
+
 	public function post_mapsur()
 	{
 		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
@@ -372,7 +445,7 @@
 					->from('survey')
 					->join('mappedsurvey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode')
-					->where('survey.block','=',$id)
+					->where('survey.block_id','=',$id)
 					->where('mappedsurvey.misid','is', null)
 					->order_by('village','asc')
 					->as_assoc()
@@ -435,5 +508,70 @@
 			$this->response($data);
 		}	
 	}
+
+	public function action_vmap()
+	{
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			$result['q'] =DB::select('*')
+					->from('releases')
+					->join('divisions','LEFT')
+					->on('divisions.division_id', '=', 'releases.funds_division')
+					->join('districts','LEFT')
+					->on('districts.id', '=', 'releases.funds_district')
+					->where('releases.deleted','=',0)
+					->order_by('funds_date','asc')
+					->order_by('district_name','asc')
+					->order_by('division_name','asc')
+					->as_object()
+					->execute();
+		}else
+		{
+
+				$result['q'] =DB::select('mappedsurvey.id','mappedsurvey.surveycode','mappedsurvey.misid','villages.village_name','survey.village')
+					->from('mappedsurvey') 
+					->join('villages','LEFT')
+					->on('mappedsurvey.misid','=', 'villages.village_misid' )
+					->join('survey','LEFT')
+					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
+					->where('mappedsurvey.deleted','=',0)
+					->where('villages.district_id','=','D04')
+					->order_by('id', 'desc')
+					->as_object()
+					->execute();
+
+		}
+        $this->template->title = 'MAPPING MIS VILLAGE WITH SURVEY';
+        $this->template->content = View::forge('survey/vmap', $result, false);
+
+	}
+
+	public function post_dist()
+	{
+		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
+		$id = \Input::post("pbid");
+		// $this->param("id");//District ID
+		\Log::Debug("In function Post in Survey Block /mapsur :" . $id);
+
+		 if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			$result =DB::select('*')
+					->from('districts')
+					->order_by('district_name','asc')
+					->as_assoc()
+					->execute();
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('value3' => $model['id'],
+										'text3'  => $model['district_name'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		 }	
+	}
+
+
+
 
 }
