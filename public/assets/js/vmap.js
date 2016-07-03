@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	$('#district').change(function(){
+	// $('#district').change(function(){
 		document.getElementById('mess_district').innerHTML ="";
-		var discode = $(this).val();
+	//	var discode = $(this).val();
+		var discode = "D01";
 		discode = discode.trim();
 		console.log("Sending Post "+ discode);
 		var target = '/myblock';
@@ -26,7 +27,7 @@ $(document).ready(function(){
 			}
 		});
 	});
-});
+// });
 
 $(document).ready(function(){
 	$('#block').change(function(){
@@ -89,30 +90,30 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
-	document.getElementById('mess_district').innerHTML ="";
-	var pcode = 'w01';
-	pcode = pcode.trim();
-	console.log("Sending Post "+ pcode);
-	var target = '/dist';
-	var data = {
-		pbid: pcode,
-	};
-	$.ajax({
-		url: target,
-		dataType: 'json',
-		data:data,
-		type: 'POST',
-		success:function(data,textstatus,XMLhttpRequest){
-			//if(data.valid){
-				console.log(data);
-			//}
-			$("#district").empty();
-			$("#district").append( $('<option></option>').val("0").html("Select District") );
-			$.each(data.vill,function(){
-			console.log(this);
-			$("#district").append( $('<option></option>').val(this.value3).html(this.text3) );
-			});
-		}
-	});
-});
+// $(document).ready(function(){
+// 	document.getElementById('mess_district').innerHTML ="";
+// 	var pcode = 'w01';
+// 	pcode = pcode.trim();
+// 	console.log("Sending Post "+ pcode);
+// 	var target = '/dist';
+// 	var data = {
+// 		pbid: pcode,
+// 	};
+// 	$.ajax({
+// 		url: target,
+// 		dataType: 'json',
+// 		data:data,
+// 		type: 'POST',
+// 		success:function(data,textstatus,XMLhttpRequest){
+// 			//if(data.valid){
+// 				console.log(data);
+// 			//}
+// 			$("#district").empty();
+// 			$("#district").append( $('<option></option>').val("0").html("Select District") );
+// 			$.each(data.vill,function(){
+// 			console.log(this);
+// 			$("#district").append( $('<option></option>').val(this.value3).html(this.text3) );
+// 			});
+// 		}
+// 	});
+// });

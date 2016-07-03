@@ -16,7 +16,7 @@
 	    <div class="alert alert-danger"><?php echo Session::get_flash('error');?></div>
 	<?php endif; ?>
 
-<form action="<?php echo Uri::create('survey/save'); ?>" method="post">
+<form action="<?php echo Uri::create('survey/save'); ?>" method="post"  >
 	<div class="container">
 		<table class="table table-condensed">
 			<thead>
@@ -28,6 +28,7 @@
 						<th style="width: 10%;">DISTRICT</th>
 						<th style="width: 30%;">
 							<select name="district" id = "district" class="form-control district">
+							
 								
 							</select>
 						</th>
@@ -36,6 +37,7 @@
 						<th style="width: 10%;">Block</th>
 						<th style="width: 30%;">
 							<select name="block" id = "block" class="form-control block">
+							  
 							</select>
 						</th>
 						<th style="width: 10%;"> <div id="mess_block"></div></th>
@@ -57,7 +59,7 @@
 						</th>
 						<th style="width: 10%;"> <div id="mess_imishab"></div></th>
 						<?php Log::debug('Combofill2 Survey:t7: '. microtime(true));?>
-						
+
 						<th style="width: 10%;"><input type="submit" value="MAP" name="save" id="save" class="btn btn-primary" style="width: 100px" ></input>	
 						</th>
 						

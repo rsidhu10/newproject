@@ -77,6 +77,8 @@
 					->where('vcode', $village['imis_village'])
 					->execute();			
             Log::debug('action_save: t5: ' . microtime(true));
+
+			
 	}
 			session::set_flash('success','Village Mapped Successully');
 			Response::redirect('survey/vmap');
@@ -97,7 +99,7 @@
 			// 		->execute();
  
 			Session::set_flash('success','Village Unmapped Successfully');
-			Response::redirect('survey/chog', 'refresh');
+			Response::redirect('survey/vmap', 'refresh');
 		}
 	}
 
