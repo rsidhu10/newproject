@@ -45,18 +45,19 @@
 					<tr>
 						<th style="width: 10%;">MIS Habitation</th>
 						<th style="width: 25%;">
-							<select id = "mis_village" class="form-control mis_village">
+							<select id = "mis_village" name = "mis_village" class="form-control mis_village">
 							</select>
 						</th>
 						<th style="width: 10%;"> <div id="mess_mishab"></div></th>
 						<?php Log::debug('Combofill Survey:t6: '. microtime(true));?>
 						<th style="width: 10%;">IMIS Habitation</th>
 						<th style="width: 25%;">
-							<select id = "imis_village" class="form-control imis_village">
+							<select id = "imis_village" name = "imis_village" class="form-control imis_village">
 							</select>
 						</th>
 						<th style="width: 10%;"> <div id="mess_imishab"></div></th>
 						<?php Log::debug('Combofill2 Survey:t7: '. microtime(true));?>
+						
 						<th style="width: 10%;"><input type="submit" value="MAP" name="save" id="save" class="btn btn-primary" style="width: 100px" ></input>	
 						</th>
 						
@@ -65,6 +66,8 @@
 				</fieldset>
 			</thead>	
 		</table>
+	</div>
+	</form>
 				<table class="table table-striped table-condensed table-hover">
 		<thead>
 			<th></th>
@@ -93,8 +96,8 @@
 			<?php $num++ ; ?>
 			<?php  endforeach;  ?>
 		</tbody>
-	</div>
-	</form>
+	
+	
 </body>
 </html>
 

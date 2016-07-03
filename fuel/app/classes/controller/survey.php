@@ -79,7 +79,7 @@
             Log::debug('action_save: t5: ' . microtime(true));
 	}
 			session::set_flash('success','Village Mapped Successully');
-			Response::redirect('survey/chog','refresh');
+			Response::redirect('survey/vmap');
 	}
 
 	public function action_delete($id)
@@ -534,7 +534,7 @@
 					->join('survey','LEFT')
 					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
 					->where('mappedsurvey.deleted','=',0)
-					->where('villages.district_id','=','D04')
+					->where('villages.district_id','=','D01')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();
@@ -554,7 +554,7 @@
 
 		 if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
 			
-			$result =DB::select('*')
+			$result =DB::select('id','district_name')
 					->from('districts')
 					->order_by('district_name','asc')
 					->as_assoc()
