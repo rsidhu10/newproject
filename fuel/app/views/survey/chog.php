@@ -6,16 +6,17 @@
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<?php echo Asset::css('jquery-ui.css'); ?>
 	<?php echo Asset::js('jquery-ui.js'); ?>
-	<?php echo Asset::js('mapping.js'); ?>
+	
+	<?php echo Asset::js('vmap.js'); ?>
 </head>
 <body>
 	<?php if(Session::get_flash('success')) :  ?>
-	    <div class="alert alert-success"><?php echo Session::get_flash('success');?>
-		</div>
+	    <div class="alert alert-success"><?php echo Session::get_flash('success');?></div>
 	<?php elseif(Session::get_flash('error')) : ?>
 	    <div class="alert alert-danger"><?php echo Session::get_flash('error');?></div>
 	<?php endif; ?>
-<form action="<?php echo Uri::create('survey/save'); ?>" method="post">
+
+<form action="<?php echo Uri::create('survey/save'); ?>" method="post"  >
 	<div class="container">
 		<table class="table table-condensed">
 			<thead>
@@ -24,26 +25,53 @@
 				</th>
 				<fieldset>
 					<tr>
-						<th>Survey VILLAGE</th>
+						<th style="width: 10%;">DISTRICT</th>
 						<th style="width: 30%;">
-							<select name="imis_village" id = "imis_village" class="form-control imisvillage">
+							<select name="district" id = "district" class="form-control district" disabled="true">
+							<option value="D01">Gurdaspur</option>
+								
 							</select>
 						</th>
+						<th style="width: 10%;"> <div id="mess_district"></div></th>
 						<?php Log::debug('Combofill Survey:t6: '. microtime(true));?>
-						<th>MIS VILLAGE</th>
+						<th style="width: 10%;">Block</th>
 						<th style="width: 30%;">
-							<select name="mis_village" id = "mis_village" class="form-control misvillage">
-							<option  value="0">Select MIS Village</option>
+							<select name="block" id = "block" class="form-control block">
+							  
 							</select>
 						</th>
+						<th style="width: 10%;"> <div id="mess_block"></div></th>
 						<?php Log::debug('Combofill2 Survey:t7: '. microtime(true));?>
-						<th><input type="submit" value="MAP" name="save" id="save" class="btn btn-primary" style="width: 100px" ></input>	
+						
+					</tr>
+					<tr>
+						<th style="width: 10%;">MIS Habitation</th>
+						<th style="width: 25%;">
+							<select id = "mis_village" name = "mis_village" class="form-control mis_village">
+
+							</select>
 						</th>
-					</tr>	
+						<th style="width: 10%;"> <div id="mess_mishab"></div></th>
+						<?php Log::debug('Combofill Survey:t6: '. microtime(true));?>
+						<th style="width: 10%;">IMIS Habitation</th>
+						<th style="width: 25%;">
+							<select id = "imis_village" name = "imis_village" class="form-control imis_village">
+							</select>
+						</th>
+						<th style="width: 10%;"> <div id="mess_imishab"></div></th>
+						<?php Log::debug('Combofill2 Survey:t7: '. microtime(true));?>
+
+						<th style="width: 10%;"><input type="submit" value="MAP" name="save" id="save" class="btn btn-primary" style="width: 100px" ></input>	
+						</th>
+						
+					</tr>
+					
 				</fieldset>
 			</thead>	
 		</table>
-		<table class="table table-striped table-condensed table-hover">
+	</div>
+	</form>
+				<table class="table table-striped table-condensed table-hover">
 		<thead>
 			<th></th>
 			<th>Sr.</th>
@@ -71,10 +99,8 @@
 			<?php $num++ ; ?>
 			<?php  endforeach;  ?>
 		</tbody>
-		
-	</table>
-	</div>
-
+	
+	
 </body>
 </html>
- 
+

@@ -14,8 +14,8 @@ return array(
     'myblock'  => 'survey/myblock',
     'mismap'  => 'survey/mismap',
     'dist'    => 'survey/dist',
-	
-	
+	'mapimis'  => 'survey/mapimis',
+
 
 	
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),

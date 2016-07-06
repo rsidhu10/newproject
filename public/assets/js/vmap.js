@@ -2,7 +2,7 @@ $(document).ready(function(){
 	// $('#district').change(function(){
 		document.getElementById('mess_district').innerHTML ="";
 	//	var discode = $(this).val();
-		var discode = "D01";
+		var discode = "D02";
 		discode = discode.trim();
 		console.log("Sending Post "+ discode);
 		var target = '/myblock';
@@ -30,9 +30,10 @@ $(document).ready(function(){
 // });
 
 $(document).ready(function(){
-	$('#block').change(function(){
-		document.getElementById('mess_block').innerHTML ="";
-		var habcode = $(this).val();
+	//$('#block').change(function(){
+		document.getElementById('mess_block').innerHTML =""
+	//	var habcode = $(this).val();
+		var habcode = "D02B09";
 		habcode = habcode.trim();
 		console.log("Sending Post for MIS Village "+ habcode);
 		var target = '/maphab';
@@ -56,16 +57,17 @@ $(document).ready(function(){
 				});
 			}
 		});
-	});
+	//});
 });
 
 $(document).ready(function(){
-	$('#block').change(function(){
+	//$('#block').change(function(){
 		document.getElementById('mess_block').innerHTML ="";
-		var surcode = $(this).val();
+		var surcode = "D02B09";
+	//	var surcode = $(this).val();
 		surcode = surcode.trim();
 		console.log("Sending Post "+ surcode);
-		var target = '/mapsur';
+		var target = '/mapimis';
 		var data = {
 			surveyid: surcode,
 		};
@@ -86,7 +88,7 @@ $(document).ready(function(){
 				});
 			}
 		});
-	});
+//	});
 });
 
 

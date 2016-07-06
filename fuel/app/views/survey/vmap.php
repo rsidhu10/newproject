@@ -27,8 +27,8 @@
 					<tr>
 						<th style="width: 10%;">DISTRICT</th>
 						<th style="width: 30%;">
-							<select name="district" id = "district" class="form-control district">
-							
+							<select name="district" id = "district" class="form-control district" disabled="true">
+							<option value="D02">Amritsar</option>
 								
 							</select>
 						</th>
@@ -48,6 +48,7 @@
 						<th style="width: 10%;">MIS Habitation</th>
 						<th style="width: 25%;">
 							<select id = "mis_village" name = "mis_village" class="form-control mis_village">
+
 							</select>
 						</th>
 						<th style="width: 10%;"> <div id="mess_mishab"></div></th>
@@ -88,8 +89,8 @@
 			<tr>
 				<td><input type="hidden" value="<?php echo $model->id; ?>"></input></td>
 				<td><?php echo $num; ?> </td>
-		    	<td><?php echo $model->surveycode; ?></td>
-		    	<td><?php echo $model->village; ?></td>
+		    	<td><?php echo $model->imisid; ?></td>
+		    	<td><?php echo $model->habitationname; ?></td>
 		    	<td><?php echo $model->misid; ?></td>
 		    	<td><?php echo $model->village_name; ?></td>
 		    	<td  style="text-align: center;"><a class="btn btn-danger" href="/survey/delete/<?php echo $model->id; ?>" >Unmap</a></td>

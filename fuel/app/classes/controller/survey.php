@@ -49,11 +49,11 @@
 			//var_dump($order);
             Log::debug('action_save: t1: ' . microtime(true));
 			$data =array(
-					'surveycode'	=> $village['imis_village'],
-					'misid' 		=> $village['mis_village'],
+					'imisid'	=> $village['imis_village'],
+					'misid' 	=> $village['mis_village'],
 			);
 			
-				$result = DB::insert('mappedsurvey',array_keys($data))
+				$result = DB::insert('mappedvillages',array_keys($data))
 					->values(array_values($data))
 					->execute();		
             Log::debug('action_save: t2: ' . microtime(true));
@@ -61,7 +61,8 @@
 			$funds = Input::all();
 	
 			$data2 =array(
-					'survey_mapped' 		=> 1,
+					'mapped' 		=> 1,
+					'imisid'	=> $village['imis_village'],
 			);
             Log::debug('action_save: t3: ' . microtime(true));
 			$result = DB::update('villages')
@@ -69,12 +70,14 @@
 					->where('village_misid', $village['mis_village'])
 					->execute();
             Log::debug('action_save: t4: ' . microtime(true));
+			
 			$data3 =array(
-					'mapped' 		=> 1,
+					'mapped' 	=> 1,
+					'misid'		=> $village['mis_village'] 
 			);
-			$result = DB::update('survey')
+			$result = DB::update('imishabitation')
 					->set($data3)
-					->where('vcode', $village['imis_village'])
+					->where('habitationid', $village['imis_village'])
 					->execute();			
             Log::debug('action_save: t5: ' . microtime(true));
 
@@ -87,7 +90,7 @@
 	public function action_delete($id)
 	{
 		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
-				$result = DB::delete('mappedsurvey')
+				$result = DB::delete('mappedvillages')
 					->where('id','=', $id)
 					->execute();
 			// $data =array(
@@ -467,22 +470,67 @@
 		}	
 	}
 
+	public function post_mapimis()
+	{
+		\Log::Debug("In function Post in my Village:" . print_r($_POST,true));
+		$id = \Input::post("surveyid");
+		// $this->param("id");//District ID
+		\Log::Debug("IMIS BLOCK CALL MAPIMIS ::: " . $id);
+
+		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
+			
+			// $result =DB::select('*')
+			// 		->from('villages')
+			// 		->join('mappedsurvey','LEFT')
+			//  		->on('mappedsurvey.misid','=', 'villages.village_misid')
+			// 		->where('villages.block_id','=',$id)
+			// 		->where('mappedsurvey.misid','is', null)
+			// 		->order_by('village_name','asc')
+			// 		->as_assoc()
+			// 		->execute();
+			
+			$result =DB::select('imishabitation.habitationid','imishabitation.habitationname')
+					->from('imishabitation')
+					->join('mappedvillages','LEFT')
+					->on('mappedvillages.imisid','=', 'imishabitation.habitationid')
+					->where('imishabitation.block_id','=',$id)
+					->where('mappedvillages.imisid','is', null)
+					->order_by('habitationname','asc')
+					->as_assoc()
+					->execute();
+
+
+
+			$data['response'] = 'true';
+			$data['vill'] = array();
+			foreach($result as $model){
+				\Log::Debug("Returning Model:" . print_r($model,true));
+				$data['vill'][] = array('value1' => $model['habitationid'],
+										'text1'  => $model['habitationname'] );
+			}		
+			\Log::Debug("Returning data:" . print_r($data,true));
+			$this->response($data);
+		}	
+	}
+
+
+
 	public function post_maphab()
 	{
 		\Log::Debug("In function Post in my MIS Village:" . print_r($_POST,true));
 		$id = \Input::post("villageid");
 		// $this->param("id");//District ID
-		\Log::Debug("In function Post in MIS Block /maphab :" . $id);
+		\Log::Debug("MIS BLOCK CODE /MAPHAB  :::" . $id);
 
 		if(isset($id) and $id != 'all' and $id != 'list' and $id !== false ){
 			
-			$result =DB::select('*')
+			$result =DB::select('villages.village_misid','villages.village_name')
 					->from('villages')
-					->join('mappedsurvey','LEFT')
-			 		->on('mappedsurvey.misid','=', 'villages.village_misid')
+					->join('mappedvillages','LEFT')
+			 		->on('mappedvillages.misid','=', 'villages.village_misid')
 					->where('villages.block_id','=',$id)
-					->where('mappedsurvey.misid','is', null)
-					->where('villages.habtype','=',0)
+					->where('mappedvillages.misid','is', null)
+					//->where('villages.mapped','=',0)
 					->order_by('village_name','asc')
 					->as_assoc()
 					->execute();
@@ -529,17 +577,20 @@
 		}else
 		{
 
-				$result['q'] =DB::select('mappedsurvey.id','mappedsurvey.surveycode','mappedsurvey.misid','villages.village_name','survey.village')
-					->from('mappedsurvey') 
+				$result['q'] =DB::select('mappedvillages.id', 'mappedvillages.misid','mappedvillages.imisid','imishabitation.habitationname' ,'villages.village_name')
+					->from('mappedvillages') 
 					->join('villages','LEFT')
-					->on('mappedsurvey.misid','=', 'villages.village_misid' )
-					->join('survey','LEFT')
-					->on('mappedsurvey.surveycode','=', 'survey.vcode' )
-					->where('mappedsurvey.deleted','=',0)
-					->where('villages.district_id','=','D01')
+					->on('mappedvillages.misid','=', 'villages.village_misid' )
+					->join('imishabitation','LEFT')
+					->on('mappedvillages.imisid','=', 'imishabitation.habitationid' )
+					// ->where('mappedvillages.deleted','=',0)
+					->where('villages.district_id','=','D02')
 					->order_by('id', 'desc')
 					->as_object()
 					->execute();
+
+
+
 
 		}
         $this->template->title = 'MAPPING MIS VILLAGE WITH SURVEY';

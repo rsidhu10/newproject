@@ -419,7 +419,7 @@
                             </div>
                             <div class="grid-single hvr-rectangle-in">
                                 <div class="report-cat-name">
-                                     <a href="/survey/chog" ><p>Mapping</p> <p>Survey</p></a>
+                                     <a href="/survey/vmap" ><p>Mapping</p> <p>Survey</p></a>
                                 </div>
                             </div>
                         </div>
